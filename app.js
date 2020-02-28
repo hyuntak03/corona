@@ -7,7 +7,21 @@ var test_num = ''
 var port = process.env.PORT || 3000;
 
 app.get('/', function (req, res) { 
-    res.send('김 나')
+    request(url, function(error, response, body){
+        var $ = cheerio.load(body)
+        $('.co_cur > ul').each(function(){
+            text = $(this).text()
+            test_text = text.toString()
+            //test_text = test_text.replace(/(^\s*)|(\s*$)/,"")
+            test_text = test_text.split('\n')
+            for(var i = 0; i<= 4;i++){
+                test_num += test_text[i].replace(/(^\s*)|(\s*$)/,"") + '\n'
+            }
+            res.send(test_num)
+            //console.log(test_num)
+        })
+        // console.log(num)
+    });
 }); 
 
 app.listen(port, function () {
