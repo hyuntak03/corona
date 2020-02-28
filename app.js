@@ -1,10 +1,12 @@
 var express = require('express'); 
 var app = express();
+var port = process.env.PORT || 3000;
 
 app.get('/', function (req, res) { 
    res.send('Hello World!'); 
 }); 
-app.listen(3000, function(){ 
-     console.log('App Listening on port 3000'); 
+
+app.listen(port, function () {
+    console.log('서버 실행중...');
 });
 
