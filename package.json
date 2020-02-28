@@ -1,17 +1,16 @@
 {
   "name": "corona",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
-  "author": "Hyuntak",
-  "license": "ISC",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.3",
-    "express": "^4.17.1",
-    "request": "^2.88.2"
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1"
   }
 }
