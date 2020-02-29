@@ -20,6 +20,9 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
 </head>
 
 <body id="page-top">
@@ -368,7 +371,20 @@
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-warning mb-1">확진자</div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">
-                        2337명
+                        <script type = "text/javascript" language="javascript">
+                        $.ajax({
+                          type: "GET",
+                          url: "https://corona-19.herokuapp.com/infected",
+                          dataType: "text",
+                          success: function(text){
+                            console.log(text)
+                            document.write(text)
+                          },
+                          error: function(xhr, status, error){
+                            console.log(error)
+                          }
+                        })
+                        </script>
                       </div>
                     </div>
                     <div class="col-auto">
@@ -728,6 +744,8 @@
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
+
+
 
 </body>
 
