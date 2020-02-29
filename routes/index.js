@@ -9,53 +9,11 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/infected', function(req,res,next){
-  request(url, function (error, response, body) {
-    var $ = cheerio.load(body)
-    $('.co_cur > ul').each(function () {
-      text = $(this).text()
-      test_text = text.toString()
-      test_text = test_text.split('\n')
-      var a = test_text[1].replace(/[^0-9]/g, "")
-      //document.write(a)
-      //console.log(a)
-      //a = test_text[1].replace(/[^0-9]/g,"")
-      res.send(a)
-    })
-  });
-})
-
-router.get('/release', function(req,res,next){
-  request(url, function (error, response, body) {
-    var $ = cheerio.load(body)
-    $('.co_cur > ul').each(function () {
-      text = $(this).text()
-      test_text = text.toString()
-      test_text = test_text.split('\n')
-      var a = test_text[2].replace(/[^0-9]/g, "")
-      //document.write(a)
-      //console.log(a)
-      //a = test_text[1].replace(/[^0-9]/g,"")
-      res.send(a)
-    })
-  });
-})
-
-router.get('/die', function(req,res,next){
-  request(url, function (error, response, body) {
-    var $ = cheerio.load(body)
-    $('.co_cur > ul').each(function () {
-      text = $(this).text()
-      test_text = text.toString()
-      test_text = test_text.split('\n')
-      var a = test_text[3].replace(/[^0-9]/g, "")
-      //document.write(a)
-      //console.log(a)
-      //a = test_text[1].replace(/[^0-9]/g,"")
-      res.send(a)
-    })
-  });
-})
+router.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "https://corona-data.herokuapp.com/infected"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 
 module.exports = router;
