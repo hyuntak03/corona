@@ -381,13 +381,15 @@
                           dataType: "text",
                           success: function(text){
                             console.log(text)
-                            document.write(text)
+                            document.getElementById("infected").innerText = text
+                            //document.write(text)
                           },
                           error: function(xhr, status, error){
                             console.log(error)
                           }
                         })
                         </script>
+                        <p id = "infected"></p>
                       </div>
                     </div>
                     <div class="col-auto">
