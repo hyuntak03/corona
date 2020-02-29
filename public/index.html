@@ -407,7 +407,24 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">확진환자 격리해제</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">27명</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <script type = "text/javascript" language="javascript">
+                          $.ajax({
+                            type: "GET",
+                            url: "https://corona-data.herokuapp.com/release",
+                            dataType: "text",
+                            success: function(text){
+                              console.log(text)
+                              document.getElementById("release").innerText = text
+                              //document.write(text)
+                            },
+                            error: function(xhr, status, error){
+                              console.log(error)
+                            }
+                          })
+                          </script>
+                          <p id = "release"></p>
+                      </div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -426,7 +443,24 @@
                   <div class="text-xs font-weight-bold text-info text-danger mb-1">사망</div>
                   <div class="row no-gutters align-items-center">
                     <div class="col-auto">
-                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">13명</div>
+                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                        <script type = "text/javascript" language="javascript">
+                          $.ajax({
+                            type: "GET",
+                            url: "https://corona-data.herokuapp.com/die",
+                            dataType: "text",
+                            success: function(text){
+                              console.log(text)
+                              document.getElementById("die").innerText = text
+                              //document.write(text)
+                            },
+                            error: function(xhr, status, error){
+                              console.log(error)
+                            }
+                          })
+                          </script>
+                          <p id = "die"></p>
+                      </div>
                     </div>
                     <div class="col">
                       <!-- <div class="progress progress-sm mr-2">
