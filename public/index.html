@@ -70,9 +70,18 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true"
+          aria-controls="collapseUtilities">
           <i class="fas fa-fw fa-search"></i>
-          <span>코로나 바이러스란?</span></a>
+          <span>코로나 바이러스란?</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">코로나 바이러스</h6>
+            <a class="collapse-item" href="utilities-color.html">코로나 바이러스란?</a>
+            <a class="collapse-item" href="utilities-border.html">코로나 예방법 및 대처법</a>
+          </div>
+        </div>
       </li>
 
       <!-- Nav Item - Utilities Collapse Menu -->
@@ -85,10 +94,11 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">국내 상황</h6>
-            <a class="collapse-item" href="utilities-color.html">지역별 감염자 수</a>
-            <a class="collapse-item" href="utilities-border.html">코로나 확산 예방 정책</a>
-            <a class="collapse-item" href="utilities-animation.html">코로나 예방 관련 봉사/후원</a>
-            <a class="collapse-item" href="utilities-other.html">예방물품(결정x)</a>
+            <a class="collapse-item" href="utilities-color.html">감염 상황</a>
+            <a class="collapse-item" href="utilities-border.html">코로나 관련 정책</a>
+            <a class="collapse-item" href="utilities-animation.html">코로나 관련 봉사 지원 및 후원</a>
+            <a class="collapse-item" href="utilities-other.html">예방물품</a>
+            <a class="collapse-item" href="utilities-other.html">마스크 무료 보급소 위치</a>
           </div>
         </div>
       </li>
@@ -111,12 +121,11 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">국제 상황</h6>
-            <a class="collapse-item" href="login.html">코로나 바이러스 확산중인 나라</a>
-            <a class="collapse-item" href="register.html">Register</a>
-            <a class="collapse-item" href="forgot-password.html">여행시 주의 필요한 나라</a>
+            <a class="collapse-item" href="login.html">국제 감염 진행국</a>
+            <a class="collapse-item" href="forgot-password.html">여행시 주의가 필요한 나라</a>
             <!-- <div class="collapse-divider"></div>
             <h6 class="collapse-header">Other Pages:</h6> -->
-            <a class="collapse-item" href="404.html">코로나 바이러스 백신 상황</a>
+            <a class="collapse-item" href="404.html">바이러스 연구 상황</a>
             <!-- <a class="collapse-item" href="blank.html">Blank Page</a> -->
           </div>
         </div>
@@ -716,7 +725,7 @@
                       var clusterer = new kakao.maps.MarkerClusterer({
                           map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체 
                           averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정 
-                          minLevel: 10 // 클러스터 할 최소 지도 레벨 
+                          minLevel: 5 // 클러스터 할 최소 지도 레벨 
                       });
                    
                       // 데이터를 가져오기 위해 jQuery를 사용합니다
