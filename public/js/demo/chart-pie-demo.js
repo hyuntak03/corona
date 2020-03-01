@@ -4,32 +4,34 @@ Chart.defaults.global.defaultFontColor = '#858796';
 
 // Pie Chart Example
 var ctx = document.getElementById("myPieChart");
-var myPieChart = new Chart(ctx, {
-  type: 'doughnut',
-  data: {
-    labels: ["확진자", "격리 해제", "사망"],
-    datasets: [{
-      data: [2337, 27, 13],
-      backgroundColor: ['#f6c23e', '#1cc88a', '#e74a3b'],
-      hoverBackgroundColor: ['#f6c23e', '#17a673', '#e74a3b'],
-      hoverBorderColor: "rgba(234, 236, 244, 1)",
-    }],
-  },
-  options: {
-    maintainAspectRatio: false,
-    tooltips: {
-      backgroundColor: "rgb(255,255,255)",
-      bodyFontColor: "#858796",
-      borderColor: '#dddfeb',
-      borderWidth: 1,
-      xPadding: 15,
-      yPadding: 15,
-      displayColors: false,
-      caretPadding: 10,
+function pie_chart(infected,release,die) {
+  var myPieChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: [infected,release,die],
+      datasets: [{
+        data: [2337, 27, 13],
+        backgroundColor: ['#f6c23e', '#1cc88a', '#e74a3b'],
+        hoverBackgroundColor: ['#f6c23e', '#17a673', '#e74a3b'],
+        hoverBorderColor: "rgba(234, 236, 244, 1)",
+      }],
     },
-    legend: {
-      display: false
+    options: {
+      maintainAspectRatio: false,
+      tooltips: {
+        backgroundColor: "rgb(255,255,255)",
+        bodyFontColor: "#858796",
+        borderColor: '#dddfeb',
+        borderWidth: 1,
+        xPadding: 15,
+        yPadding: 15,
+        displayColors: false,
+        caretPadding: 10,
+      },
+      legend: {
+        display: false
+      },
+      cutoutPercentage: 80,
     },
-    cutoutPercentage: 80,
-  },
-});
+  });
+}
