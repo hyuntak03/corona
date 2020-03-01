@@ -2,15 +2,19 @@
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
 
+var infected = 1
+var release = 2
+var die = 1
+
 // Pie Chart Example
 var ctx = document.getElementById("myPieChart");
 function pie_chart(infected,release,die) {
   var myPieChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
-      labels: [infected,release,die],
+      labels: ['확진자','확진자 격리 취소','사망자'],
       datasets: [{
-        data: [2337, 27, 13],
+        data: [infected, release, die],
         backgroundColor: ['#f6c23e', '#1cc88a', '#e74a3b'],
         hoverBackgroundColor: ['#f6c23e', '#17a673', '#e74a3b'],
         hoverBorderColor: "rgba(234, 236, 244, 1)",
@@ -35,3 +39,5 @@ function pie_chart(infected,release,die) {
     },
   });
 }
+
+pie_chart(infected,release,die)

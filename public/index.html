@@ -210,15 +210,15 @@
             </li>
 
             <!-- Nav Item - Alerts -->
-            <li class="nav-item dropdown no-arrow mx-1">
+            <!-- <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bell fa-fw"></i>
+                <i class="fas fa-bell fa-fw"></i> -->
                 <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">3+</span>
-              </a>
+                <!-- <span class="badge badge-danger badge-counter">3+</span>
+              </a> -->
               <!-- Dropdown - Alerts -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+              <!-- <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                 aria-labelledby="alertsDropdown">
                 <h6 class="dropdown-header">
                   Alerts Center
@@ -258,18 +258,18 @@
                 </a>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
               </div>
-            </li>
+            </li> -->
 
             <!-- Nav Item - Messages -->
-            <li class="nav-item dropdown no-arrow mx-1">
+            <!-- <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-envelope fa-fw"></i>
+                <i class="fas fa-envelope fa-fw"></i> -->
                 <!-- Counter - Messages -->
-                <span class="badge badge-danger badge-counter">7</span>
-              </a>
+                <!-- <span class="badge badge-danger badge-counter">7</span>
+              </a> -->
               <!-- Dropdown - Messages -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+              <!-- <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                 aria-labelledby="messagesDropdown">
                 <h6 class="dropdown-header">
                   Message Center
@@ -320,19 +320,19 @@
                 </a>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
               </div>
-            </li>
+            </li> -->
 
-            <div class="topbar-divider d-none d-sm-block"></div>
+            <!-- <div class="topbar-divider d-none d-sm-block"></div> -->
 
             <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow">
+            <!-- <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
-              </a>
+              </a> -->
               <!-- Dropdown - User Information -->
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+              <!-- <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="#">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
@@ -351,7 +351,7 @@
                   Logout
                 </a>
               </div>
-            </li>
+            </li> -->
 
           </ul>
 
@@ -577,28 +577,23 @@
                 <div class="card shadow mb-4">
                   <!-- Card Header - Dropdown -->
                   <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">국내 현재 상황</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">오늘 추가 발생 확진자/사망자</h6>
                     <div class="dropdown no-arrow">
-                      <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                      </a>
-                      <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                        aria-labelledby="dropdownMenuLink">
-                        <div class="dropdown-header">Dropdown Header:</div>
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                      </div>
                     </div>
                   </div>
                   <!-- Card Body -->
                   <div class="card-body">
                     <div class="chart-pie pt-4 pb-2">
-                      <canvas id="myPieChart"></canvas>
+                      <span class = "mr-2">
+                        <i class='fas fa-circle text-warning'></i>확진자
+                      </span>
+                      <br></br>
+                      <br></br>  
+                      <span class = "mr-2">
+                        <i class='fas fa-circle text-danger'></i>사망자
+                      </span>
                     </div>
-                    <div class="mt-4 text-center small">
+                    <!-- <div class="mt-4 text-center small">
                       <span class="mr-2">
                         <i class="fas fa-circle text-warning"></i> 확진자
                       </span>
@@ -608,7 +603,7 @@
                       <span class="mr-2">
                         <i class="fas fa-circle text-danger"></i> 사망자
                       </span>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
@@ -713,10 +708,29 @@
                 <!-- Illustrations -->
                 <div class="card shadow mb-4">
                   <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">국내 지역별 확진자</h6>
                   </div>
                   <div class="card-body">
-                    <div class="text-center">
+
+                    <div id="map" style="width:1280px;height:720px;"></div>
+                    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d21bba611d5b2617ceca0bb656175c49"></script>
+                    <script>
+                      var container = document.getElementById('map');
+                      var options = {
+                        center: new kakao.maps.LatLng(33.450701, 126.570667),
+                        level: 14
+                      };
+
+                      var map = new kakao.maps.Map(container, options);
+
+                      var markerposition = new kakao.maps.LatLng(33.450701, 126.570667);
+                      var marker = new kakao.maps.Marker({
+                        position: markerposition
+                      });
+                      marker.setMap(map);
+                    </script>
+                    
+                    <!-- <div class="text-center">
                       <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
                         src="img/undraw_posting_photo.svg" alt="">
                     </div>
@@ -725,7 +739,7 @@
                       that
                       you can use completely free and without attribution!</p>
                     <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw
-                      &rarr;</a>
+                      &rarr;</a> -->
                   </div>
                 </div>
 
@@ -757,7 +771,7 @@
         <footer class="sticky-footer bg-white">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright &copy; Your Website 2019</span>
+              <span>Copyright &copy; Kim Na 2020</span>
             </div>
           </div>
         </footer>
@@ -809,7 +823,8 @@
 
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js">
+</script>
 
 
 
