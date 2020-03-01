@@ -55,7 +55,7 @@
       <li class="nav-item active">
         <a class="nav-link" href="index.html">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>코로나19 현재 상황</span></a>
+          <span>코로나-19 현재 상황</span></a>
       </li>
 
       <!-- Divider -->
@@ -97,6 +97,7 @@
             <a class="collapse-item" href="utilities-animation.html">코로나 관련 봉사 지원 및 후원</a>
             <a class="collapse-item" href="utilities-other.html">예방물품</a>
             <a class="collapse-item" href="utilities-other.html">마스크 무료 보급소 위치</a>
+            <a class="collapse-item" href="http://www.mohw.go.kr/react/popup_200128.html">코로나-19 선별진료소</a>
           </div>
         </div>
       </li>
@@ -361,10 +362,12 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">코로나19 상황</h1>
+            <h1 class="h3 mb-0 text-gray-800">코로나-19 현재 상황</h1>
             <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
           </div>
+          <hr class="sidebar-divider d-none d-md-block">
+          <div class="text-xs font-weight-bold text-primary text-gray-600 mb-1">코로나-19 뉴스는 질병관리본부 데이터를 사용합니다.</div>
 
           <!-- Content Row -->
           <div class="row">
@@ -498,6 +501,7 @@
                             url: "https://corona-data.herokuapp.com/die_percentage",
                             dataType: "text",
                             success: function (text) {
+                              text = text.toString()
                               console.log(text)
                               document.getElementById("die_percentage").innerText = "0." + text + "%"
                             },
@@ -545,7 +549,7 @@
                 <div class="card shadow mb-4">
                   <!-- Card Header - Dropdown -->
                   <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">국내 코로나-19 확진자 증가 추세</h6>
                     <div class="dropdown no-arrow">
                       <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
