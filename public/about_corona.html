@@ -13,7 +13,9 @@
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -22,90 +24,117 @@
 
 <body id="page-top">
 
-<!-- Page Wrapper -->
-<div id="wrapper">
+  <!-- Page Wrapper -->
+  <div id="wrapper">
 
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-        <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-            <div class="sidebar-brand-icon rotate-n-15">
-            </div>
-            <div class="sidebar-brand-text mx-4">코로나-19 뉴스</div>
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+        </div>
+        <div class="sidebar-brand-text mx-4">코로나-19 뉴스</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>코로나-19 현재 상황</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseVirus" aria-expanded="true"
+          aria-controls="collapseVirus">
+          <i class="fas fa-fw fa-search"></i>
+          <span>코로나 바이러스란?</span>
         </a>
+        <div id="collapseVirus" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">코로나 바이러스</h6>
+            <a class="collapse-item" href="about_corona.html">코로나 바이러스란?</a>
+            <a class="collapse-item" href="prevent_corona.html">코로나 예방법 및 대처법</a>
+          </div>
+        </div>
+      </li>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0">
+      <!-- Nav Item - Utilities Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+          aria-expanded="true" aria-controls="collapseUtilities">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>국내 상황</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">국내 상황</h6>
+            <a class="collapse-item" href="utilities-color.html">감염 상황</a>
+            <a class="collapse-item" href="utilities-border.html">코로나 관련 정책</a>
+            <a class="collapse-item" href="utilities-animation.html">코로나 관련 봉사 지원 및 후원</a>
+            <a class="collapse-item" href="utilities-other.html">예방물품</a>
+            <a class="collapse-item" href="utilities-other.html">마스크 무료 보급소 위치</a>
+            <a class="collapse-item" href="http://www.mohw.go.kr/react/popup_200128.html">코로나-19 선별진료소</a>
+          </div>
+        </div>
+      </li>
 
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item">
-            <a class="nav-link" href="index.html">
-                <i class="fas fa-fw fa-chart-area"></i>
-                <span>코로나-19 현재 상황</span></a>
-        </li>
+      <li class="nav-item">
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+          aria-controls="collapsePages">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>국제 상황</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">국제 상황</h6>
+            <a class="collapse-item" href="https://www.cdc.gov/coronavirus/2019-ncov/locations-confirmed-cases.html">국제
+              감염 진행국</a>
+            <a class="collapse-item"
+              href="http://0404.go.kr/dev/country.mofa?idx=&hash=&chkvalue=no2&stext=&group_idx=&alert_level=0">여행시 주의가
+              필요한 나라</a>
+            <a class="collapse-item"
+              href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports/">WHO 현황 보고서</a>
+          </div>
+        </div>
+      </li>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider">
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseVolunteer"
+          aria-expanded="true" aria-controls="collapseVolunteer">
+          <i class="fas fa-fw fa-search"></i>
+          <span>관련 봉사/지원/후원</span>
+        </a>
+        <div id="collapseVolunteer" class="collapse" aria-labelledby="volunteer" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">관련 봉사/지원/후원</h6>
+            <a class="collapse-item" href="https://www.1365.go.kr/vols/P9210/partcptn/timeCptn.do"
+              target="_">1365사이트</a>
+            <a class="collapse-item" href="http://www.withgo.or.kr/web/campaign/campaignView.do?strArea=A&intSeq=2247"
+              target="_">저소득층 마스크 기부-사랑밭</a>
+            <a class="collapse-item"
+              href="https://www.gfound.org/bbs/board.php?bo_table=support_6&wr_id=14&NaPm=ct%3Dk7bziz1s%7Cci%3D0zG0003Qo5TsFLD1XKZ%5F%7Ctr%3Dsa%7Chk%3D6668877da1a9c747a10f4f6c3f21b5169414d986"
+              target="_">지파운데이션</a>
+            <a class="collapse-item"
+              href="https://www.worldvision.or.kr/business/dataCenter/worldNews/worldNews_view.asp?b_seq=12775&mcode=2889&EKAMS=naver.900.5798.20591.2043441.617933200&utm_source=naver&trackingDays=30&utm_medium=cpc&utm_campaign=searchad&utm_term=%EC%BD%94%EB%A1%9C%EB%82%98%EA%B8%B0%EB%B6%80&utm_content=K&n_media=27758&n_query=%EC%BD%94%EB%A1%9C%EB%82%98%EA%B8%B0%EB%B6%80&n_rank=3&n_ad_group=grp-a001-01-000000014381332&n_ad=nad-a001-01-000000087023905&n_keyword_id=nkw-a001-01-000002732976554&n_keyword=%EC%BD%94%EB%A1%9C%EB%82%98%EA%B8%B0%EB%B6%80&n_campaign_type=1&NaPm=ct%3Dk7bzlgk0%7Cci%3D0BHJ001EojTs2fkJbvo6%7Ctr%3Dsa%7Chk%3D9ca08e2fb4f0dc0e2b54805a5904ddf2e1d06e51"
+              target="_">월드비전</a>
+          </div>
+        </div>
+      </li>
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseVirus"
-                aria-expanded="true" aria-controls="collapseVirus">
-                <i class="fas fa-fw fa-search"></i>
-                <span>코로나 바이러스란?</span>
-            </a>
-            <div id="collapseVirus" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">코로나 바이러스</h6>
-                    <a class="collapse-item" href="about_corona.html">코로나 바이러스란?</a>
-                    <a class="collapse-item" href="prevent_corona.html">코로나 예방법 및 대처법</a>
-                </div>
-            </div>
-        </li>
-
-        <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                aria-expanded="true" aria-controls="collapseUtilities">
-                <i class="fas fa-fw fa-chart-area"></i>
-                <span>국내 상황</span>
-            </a>
-            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">국내 상황</h6>
-                    <a class="collapse-item" href="utilities-color.html">감염 상황</a>
-                    <a class="collapse-item" href="utilities-border.html">코로나 관련 정책</a>
-                    <a class="collapse-item" href="utilities-animation.html">코로나 관련 봉사 지원 및 후원</a>
-                    <a class="collapse-item" href="utilities-other.html">예방물품</a>
-                    <a class="collapse-item" href="utilities-other.html">마스크 무료 보급소 위치</a>
-                    <a class="collapse-item" href="http://www.mohw.go.kr/react/popup_200128.html">코로나-19 선별진료소</a>
-                </div>
-            </div>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                aria-expanded="true" aria-controls="collapsePages">
-                <i class="fas fa-fw fa-chart-area"></i>
-                <span>국제 상황</span>
-            </a>
-            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">국제 상황</h6>
-                    <a class="collapse-item" href="login.html">국제 감염 진행국</a>
-                    <a class="collapse-item" href="forgot-password.html">여행시 주의가 필요한 나라</a>
-                    <a class="collapse-item" href="404.html">바이러스 연구 상황</a>
-                </div>
-            </div>
-        </li>
-
-        <!-- Nav Item - Charts -->
-        <li class="nav-item">
-            <a class="nav-link" href="charts.html">
-                <i class="fas fa-fw fa-comments"></i>
-                <span>문의</span></a>
-        </li>
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="charts.html">
+          <i class="fas fa-fw fa-comments"></i>
+          <span>문의</span></a>
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -135,7 +164,8 @@
           <!-- Topbar Search -->
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
                 <button class="btn btn-primary" type="button">
                   <i class="fas fa-search fa-sm"></i>
@@ -149,14 +179,17 @@
 
             <!-- Nav Item - Search Dropdown (Visible Only XS) -->
             <li class="nav-item dropdown no-arrow d-sm-none">
-              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-search fa-fw"></i>
               </a>
               <!-- Dropdown - Messages -->
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                aria-labelledby="searchDropdown">
                 <form class="form-inline mr-auto w-100 navbar-search">
                   <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                      aria-label="Search" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                       <button class="btn btn-primary" type="button">
                         <i class="fas fa-search fa-sm"></i>
@@ -175,61 +208,63 @@
 
           <!-- Page Heading -->
           <h1 class="h3 mb-1 text-gray-800">코로나 바이러스란</h1>
-          <img src = /images/corona.jpg width="200" height="200">
+          <img src= /images/corona.jpg width="200" height="200">
           <br></br>
-          <p class="mb-1">코로나 바이러스는 사람이나 동물에서 호흡기 질환을 일으키는 바이러스로 감기를 일으키는 원인 바이러스 중 하나입니다.<br>이 바이러스는 현미경으로 관찰했을 때 코로나 모양이라서 붙여진 이름입니다.</br> 2003년 사스(중증 급성 호흡기 증후군)와 2015년 메르스(중동 호흡기 증후군)가 이 코로나 바이러스로 인한 것이었습니다.</p>
+          <p class="mb-1">코로나 바이러스는 사람이나 동물에서 호흡기 질환을 일으키는 바이러스로 감기를 일으키는 원인 바이러스 중 하나입니다.<br>이 바이러스는 현미경으로 관찰했을 때 코로나
+            모양이라서 붙여진 이름입니다.</br> 2003년 사스(중증 급성 호흡기 증후군)와 2015년 메르스(중동 호흡기 증후군)가 이 코로나 바이러스로 인한 것이었습니다.</p>
 
           <hr class="sidebar-divider d-none d-md-block">
           <!-- Page body -->
           <h1 class="h3 mb-1 text-gray-800">코로나 바이러스 주요 증상</h1>
-          <br class="mb-1">코로나-19에 감염되면 2~3일에서 최장 2주 정도 잠복기를 거쳤다가 다양한 증상이 나타납니다.<br>주로 무기력감, 37.5도 이상의 고열, 기침, 인후통, 가래, 근육통, 두통, 호흡곤란, 폐렴 등의 증상이 발생합니다.</br>폐 손상에 따른 호흡부전으로 심하면 사망에 이를 수도 있습니다.</p>
+          <br class="mb-1">코로나-19에 감염되면 2~3일에서 최장 2주 정도 잠복기를 거쳤다가 다양한 증상이 나타납니다.<br>주로 무기력감, 37.5도 이상의 고열, 기침, 인후통, 가래,
+          근육통, 두통, 호흡곤란, 폐렴 등의 증상이 발생합니다.</br>폐 손상에 따른 호흡부전으로 심하면 사망에 이를 수도 있습니다.</p>
           <!-- Content Row -->
 
-      </div>
-      <!-- End of Main Content -->
-
-      <!-- Footer -->
-      <footer class="sticky-footer bg-light">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
-            <span>Copyright &copy; Corona-19 News 2020</span>
-          </div>
         </div>
-      </footer>
-      <!-- End of Footer -->
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-light">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <span>Copyright &copy; Corona-19 News 2020</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+
+      </div>
+      <!-- End of Content Wrapper -->
 
     </div>
-    <!-- End of Content Wrapper -->
+    <!-- End of Page Wrapper -->
 
-  </div>
-  <!-- End of Page Wrapper -->
-
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
 
 
-  <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
 
 </body>
 

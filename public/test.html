@@ -4,66 +4,363 @@
 <head>
 	<meta charset="utf-8">
 	<title>다각형에 이벤트 등록하기2</title>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script>
+		var seoul;
+		var gyeonggi;
+		var junbuk;
+		var keongnam;
+		var junnam;
+		var busan;
+		var keongbuk
+		var sejong;
+		var daejun;
+		var wulsan;
+		var incheon;
+		var gangwon;
+		var chungnam;
+		var jeju;
+		var chungbuk;
+		var daegu;
+		var gwangju;
+
+		function test() {
+			$.ajax({
+				type: "GET",
+				url: "https://corona-data.herokuapp.com/seoul",
+				dataType: "text",
+				async: false,
+				success: function (text) {
+					console.log(text)
+					//document.getElementById("infected").innerText = text + "명"
+					seoul = text;
+
+					//document.write(text)
+				},
+				error: function (xhr, status, error) {
+					console.log(error)
+				}
+			})
+			$.ajax({
+				type: "GET",
+				url: "https://corona-data.herokuapp.com/gyeonggi",
+				dataType: "text",
+				async: false,
+				success: function (text) {
+					console.log(text)
+					//document.getElementById("infected").innerText = text + "명"
+					gyeonggi = text;
+
+					//document.write(text)
+				},
+				error: function (xhr, status, error) {
+					console.log(error)
+				}
+			})
+			$.ajax({
+				type: "GET",
+				url: "https://corona-data.herokuapp.com/junbuk",
+				dataType: "text",
+				async: false,
+				success: function (text) {
+					console.log(text)
+					//document.getElementById("infected").innerText = text + "명"
+					junbuk = text;
+
+					//document.write(text)
+				},
+				error: function (xhr, status, error) {
+					console.log(error)
+				}
+			})
+			$.ajax({
+				type: "GET",
+				url: "https://corona-data.herokuapp.com/keongnam",
+				dataType: "text",
+				async: false,
+				success: function (text) {
+					console.log(text)
+					//document.getElementById("infected").innerText = text + "명"
+					keongnam = text;
+
+					//document.write(text)
+				},
+				error: function (xhr, status, error) {
+					console.log(error)
+				}
+			})
+			$.ajax({
+				type: "GET",
+				url: "https://corona-data.herokuapp.com/junnam",
+				dataType: "text",
+				async: false,
+				success: function (text) {
+					console.log(text)
+					//document.getElementById("infected").innerText = text + "명"
+					junnam = text;
+
+					//document.write(text)
+				},
+				error: function (xhr, status, error) {
+					console.log(error)
+				}
+			})
+			$.ajax({
+				type: "GET",
+				url: "https://corona-data.herokuapp.com/busan",
+				dataType: "text",
+				async: false,
+				success: function (text) {
+					console.log(text)
+					//document.getElementById("infected").innerText = text + "명"
+					busan = text;
+
+					//document.write(text)
+				},
+				error: function (xhr, status, error) {
+					console.log(error)
+				}
+			})
+			$.ajax({
+				type: "GET",
+				url: "https://corona-data.herokuapp.com/keongbuk",
+				dataType: "text",
+				async: false,
+				success: function (text) {
+					console.log(text)
+					//document.getElementById("infected").innerText = text + "명"
+					keongbuk = text;
+
+					//document.write(text)
+				},
+				error: function (xhr, status, error) {
+					console.log(error)
+				}
+			})
+			$.ajax({
+				type: "GET",
+				url: "https://corona-data.herokuapp.com/sejong",
+				dataType: "text",
+				async: false,
+				success: function (text) {
+					console.log(text)
+					//document.getElementById("infected").innerText = text + "명"
+					sejong = text;
+
+					//document.write(text)
+				},
+				error: function (xhr, status, error) {
+					console.log(error)
+				}
+			})
+			$.ajax({
+				type: "GET",
+				url: "https://corona-data.herokuapp.com/daejun",
+				dataType: "text",
+				async: false,
+				success: function (text) {
+					console.log(text)
+					//document.getElementById("infected").innerText = text + "명"
+					daejun = text;
+
+					//document.write(text)
+				},
+				error: function (xhr, status, error) {
+					console.log(error)
+				}
+			})
+			$.ajax({
+				type: "GET",
+				url: "https://corona-data.herokuapp.com/wulsan",
+				dataType: "text",
+				async: false,
+				success: function (text) {
+					console.log(text)
+					//document.getElementById("infected").innerText = text + "명"
+					wulsan = text;
+
+					//document.write(text)
+				},
+				error: function (xhr, status, error) {
+					console.log(error)
+				}
+			})
+			$.ajax({
+				type: "GET",
+				url: "https://corona-data.herokuapp.com/incheon",
+				dataType: "text",
+				async: false,
+				success: function (text) {
+					console.log(text)
+					//document.getElementById("infected").innerText = text + "명"
+					incheon = text;
+
+					//document.write(text)
+				},
+				error: function (xhr, status, error) {
+					console.log(error)
+				}
+			})
+			$.ajax({
+				type: "GET",
+				url: "https://corona-data.herokuapp.com/gangwon",
+				dataType: "text",
+				async: false,
+				success: function (text) {
+					console.log(text)
+					//document.getElementById("infected").innerText = text + "명"
+					gangwon = text;
+
+					//document.write(text)
+				},
+				error: function (xhr, status, error) {
+					console.log(error)
+				}
+			})
+			$.ajax({
+				type: "GET",
+				url: "https://corona-data.herokuapp.com/chungnam",
+				dataType: "text",
+				async: false,
+				success: function (text) {
+					console.log(text)
+					//document.getElementById("infected").innerText = text + "명"
+					chungnam = text;
+
+					//document.write(text)
+				},
+				error: function (xhr, status, error) {
+					console.log(error)
+				}
+			})
+			$.ajax({
+				type: "GET",
+				url: "https://corona-data.herokuapp.com/jeju",
+				dataType: "text",
+				async: false,
+				success: function (text) {
+					console.log(text)
+					//document.getElementById("infected").innerText = text + "명"
+					jeju = text;
+
+					//document.write(text)
+				},
+				error: function (xhr, status, error) {
+					console.log(error)
+				}
+			})
+			$.ajax({
+				type: "GET",
+				url: "https://corona-data.herokuapp.com/chungbuk",
+				dataType: "text",
+				async: false,
+				success: function (text) {
+					console.log(text)
+					//document.getElementById("infected").innerText = text + "명"
+					chungbuk = text;
+
+					//document.write(text)
+				},
+				error: function (xhr, status, error) {
+					console.log(error)
+				}
+			})
+			$.ajax({
+				type: "GET",
+				url: "https://corona-data.herokuapp.com/daegu",
+				dataType: "text",
+				async: false,
+				success: function (text) {
+					console.log(text)
+					//document.getElementById("infected").innerText = text + "명"
+					daegu = text;
+
+					//document.write(text)
+				},
+				error: function (xhr, status, error) {
+					console.log(error)
+				}
+			})
+			$.ajax({
+				type: "GET",
+				url: "https://corona-data.herokuapp.com/gwangju",
+				dataType: "text",
+				async: false,
+				success: function (text) {
+					console.log(text)
+					//document.getElementById("infected").innerText = text + "명"
+					gwangju = text;
+
+					//document.write(text)
+				},
+				error: function (xhr, status, error) {
+					console.log(error)
+				}
+			})
+		}
+	</script>
 </head>
 
 <body>
 	<script src="https://code.highcharts.com/maps/highmaps.js"></script>
 	<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
-	<!-- <script src="https://code.highcharts.com/mapdata/countries/kr/kr-all.js"></script> -->
+	<script src="https://code.highcharts.com/mapdata/countries/kr/kr-all.js"></script>
 	<script src="data/korea_map.js"></script>
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script>
+		test()
+	</script>
 
 	<div id="container"></div>
 	<script>
+		console.log('test' + seoul)
 		var data = [
 			['kr-4194', 0],
-			['kr-kg', 1],
-			['kr-cb', 2],
-			['kr-kn', 3],
-			['kr-2685', 4],
-			['kr-pu', 5],
-			['kr-2688', 6],
-			['kr-sj', 7],
-			['kr-tj', 8],
-			['kr-ul', 9],
-			['kr-in', 10],
-			['kr-kw', 99],
-			['kr-gn', 12],
-			['kr-cj', 13],
-			['kr-gb', 14],
-			['kr-so', 15],
-			['kr-tg', 16],
-			['kr-kj', 17]
+			['kr-kg', gyeonggi], //경기
+			['kr-cb', junbuk], //전북
+			['kr-kn', keongnam], //경남
+			['kr-2685', junnam], //전남
+			['kr-pu', busan], //부산
+			['kr-2688', keongbuk], //경북
+			['kr-sj', sejong], // 세종
+			['kr-tj', daejun], //대전
+			['kr-ul', wulsan], //울산
+			['kr-in', incheon], //인천
+			['kr-kw', gangwon], //강원도
+			['kr-gn', chungnam], //충남
+			['kr-cj', jeju], //제주
+			['kr-gb', chungbuk], //충북
+			['kr-so', seoul], //서울
+			['kr-tg', daegu], //대구
+			['kr-kj', gwangju] //광주
 		];
 
 		// Create the chart
 		Highcharts.mapChart('container', {
 			chart: {
+				height: 500,
+				width: 500,
 				map: 'countries/kr/kr-all'
 			},
 
 			title: {
-				text: 'Highmaps basic demo'
+				text: '대한민국 지역별 감염자수'
 			},
-
-			subtitle: {
-				text: 'Source map: <a href="data/korea_map.js">South Korea</a>'
-			},
-
 			mapNavigation: {
 				enabled: true,
 				buttonOptions: {
 					verticalAlign: 'bottom'
 				}
 			},
-
 			colorAxis: {
-				min: 0
+				min: 0,
+				max: 500
 			},
-
+			legend: {
+				enabled: false
+			},
 			series: [{
 				data: data,
-				name: 'Random data',
+				name: '감염자',
 				states: {
 					hover: {
 						color: '#BADA55'
