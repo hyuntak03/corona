@@ -38,7 +38,7 @@
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 			mapOption = {
 				center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-				level: 8 // 지도의 확대 레벨
+				level: 14 // 지도의 확대 레벨
 			};
 
 		$.getJSON("data/korea.json",function(geojson){
@@ -61,12 +61,12 @@
 
 			var path = [];
 			var points = [];
-			$.each(coordinates[0],function(index, coordinate){
+			$.each(coordinates[0],function(index, coordinates){
 				var point = new Object();
-				point.x = coordinate[1];
-				point.y = coordinate[0];
+				point.x = coordinates[1];
+				point.y = coordinates[0];
 				points.push(point);
-				path.push(new kakao.maps.LatLng(coordinate[1],coordinate[0]));
+				path.push(new kakao.maps.LatLng(coordinates[1],coordinates[0]));
 			})
 
 			// 다각형을 생성합니다 
