@@ -25,6 +25,7 @@
   <script src="https://code.highcharts.com/mapdata/countries/kr/kr-all.js"></script>
   <script src="data/korea_map.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
   <script>
     var seoul;
     var gyeonggi;
@@ -49,7 +50,7 @@
         type: "GET",
         url: "https://corona-data.herokuapp.com/seoul",
         dataType: "text",
-        async: false,
+        //async: false,
         success: function (text) {
           console.log(text)
           //document.getElementById("infected").innerText = text + "명"
@@ -65,7 +66,7 @@
         type: "GET",
         url: "https://corona-data.herokuapp.com/gyeonggi",
         dataType: "text",
-        async: false,
+        //async: false,
         success: function (text) {
           console.log(text)
           //document.getElementById("infected").innerText = text + "명"
@@ -81,7 +82,7 @@
         type: "GET",
         url: "https://corona-data.herokuapp.com/junbuk",
         dataType: "text",
-        async: false,
+        //async: false,
         success: function (text) {
           console.log(text)
           //document.getElementById("infected").innerText = text + "명"
@@ -97,7 +98,7 @@
         type: "GET",
         url: "https://corona-data.herokuapp.com/keongnam",
         dataType: "text",
-        async: false,
+        //async: false,
         success: function (text) {
           console.log(text)
           //document.getElementById("infected").innerText = text + "명"
@@ -113,7 +114,7 @@
         type: "GET",
         url: "https://corona-data.herokuapp.com/junnam",
         dataType: "text",
-        async: false,
+        //async: false,
         success: function (text) {
           console.log(text)
           //document.getElementById("infected").innerText = text + "명"
@@ -129,7 +130,7 @@
         type: "GET",
         url: "https://corona-data.herokuapp.com/busan",
         dataType: "text",
-        async: false,
+        //async: false,
         success: function (text) {
           console.log(text)
           //document.getElementById("infected").innerText = text + "명"
@@ -145,7 +146,7 @@
         type: "GET",
         url: "https://corona-data.herokuapp.com/keongbuk",
         dataType: "text",
-        async: false,
+        //async: false,
         success: function (text) {
           console.log(text)
           //document.getElementById("infected").innerText = text + "명"
@@ -161,7 +162,7 @@
         type: "GET",
         url: "https://corona-data.herokuapp.com/sejong",
         dataType: "text",
-        async: false,
+        //async: false,
         success: function (text) {
           console.log(text)
           //document.getElementById("infected").innerText = text + "명"
@@ -177,7 +178,7 @@
         type: "GET",
         url: "https://corona-data.herokuapp.com/daejun",
         dataType: "text",
-        async: false,
+        //async: false,
         success: function (text) {
           console.log(text)
           //document.getElementById("infected").innerText = text + "명"
@@ -193,7 +194,7 @@
         type: "GET",
         url: "https://corona-data.herokuapp.com/wulsan",
         dataType: "text",
-        async: false,
+        //async: false,
         success: function (text) {
           console.log(text)
           //document.getElementById("infected").innerText = text + "명"
@@ -209,7 +210,7 @@
         type: "GET",
         url: "https://corona-data.herokuapp.com/incheon",
         dataType: "text",
-        async: false,
+        //async: false,
         success: function (text) {
           console.log(text)
           //document.getElementById("infected").innerText = text + "명"
@@ -225,7 +226,7 @@
         type: "GET",
         url: "https://corona-data.herokuapp.com/gangwon",
         dataType: "text",
-        async: false,
+        //async: false,
         success: function (text) {
           console.log(text)
           //document.getElementById("infected").innerText = text + "명"
@@ -241,7 +242,7 @@
         type: "GET",
         url: "https://corona-data.herokuapp.com/chungnam",
         dataType: "text",
-        async: false,
+        //async: false,
         success: function (text) {
           console.log(text)
           //document.getElementById("infected").innerText = text + "명"
@@ -257,7 +258,7 @@
         type: "GET",
         url: "https://corona-data.herokuapp.com/jeju",
         dataType: "text",
-        async: false,
+        //async: false,
         success: function (text) {
           console.log(text)
           //document.getElementById("infected").innerText = text + "명"
@@ -273,7 +274,7 @@
         type: "GET",
         url: "https://corona-data.herokuapp.com/chungbuk",
         dataType: "text",
-        async: false,
+        //async: false,
         success: function (text) {
           console.log(text)
           //document.getElementById("infected").innerText = text + "명"
@@ -289,7 +290,7 @@
         type: "GET",
         url: "https://corona-data.herokuapp.com/daegu",
         dataType: "text",
-        async: false,
+        //async: false,
         success: function (text) {
           console.log(text)
           //document.getElementById("infected").innerText = text + "명"
@@ -305,19 +306,18 @@
         type: "GET",
         url: "https://corona-data.herokuapp.com/gwangju",
         dataType: "text",
-        async: false,
+        //async: false,
         success: function (text) {
           console.log(text)
           //document.getElementById("infected").innerText = text + "명"
           gwangju = text;
-
+          setTimeout(map(),1000)
           //document.write(text)
         },
         error: function (xhr, status, error) {
           console.log(error)
         }
       })
-      map()
     }
   </script>
   <script>
@@ -363,7 +363,7 @@
         },
         colorAxis: {
           min: 0,
-          max: 500
+          max: 200
         },
         legend: {
           enabled: false
@@ -445,7 +445,7 @@
             <a class="collapse-item" href="utilities-animation.html">코로나 관련 봉사 지원 및 후원</a>
             <a class="collapse-item" href="utilities-other.html">예방물품</a>
             <a class="collapse-item" href="utilities-other.html">마스크 무료 보급소 위치</a>
-            <a class="collapse-item" href="http://www.mohw.go.kr/react/popup_200128.html">코로나-19 선별진료소</a>
+            <a class="collapse-item" href="http://www.mohw.go.kr/react/popup_200128.html" target="_blank">코로나-19
           </div>
         </div>
       </li>
@@ -459,9 +459,11 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">국제 상황</h6>
-            <a class="collapse-item" href="https://www.cdc.gov/coronavirus/2019-ncov/locations-confirmed-cases.html">국제 감염 진행국</a>
+            <a class="collapse-item" href="https://www.cdc.gov/coronavirus/2019-ncov/locations-confirmed-cases.html">국제
+              감염 진행국</a>
             <a class="collapse-item"
-              href="http://0404.go.kr/dev/country.mofa?idx=&hash=&chkvalue=no2&stext=&group_idx=&alert_level=0">여행시 주의가 필요한 나라</a>
+              href="http://0404.go.kr/dev/country.mofa?idx=&hash=&chkvalue=no2&stext=&group_idx=&alert_level=0">여행시 주의가
+              필요한 나라</a>
             <a class="collapse-item"
               href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports/">WHO 현황 보고서</a>
           </div>
@@ -469,8 +471,8 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseVolunteer" aria-expanded="true"
-          aria-controls="collapseVolunteer">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseVolunteer"
+          aria-expanded="true" aria-controls="collapseVolunteer">
           <i class="fas fa-fw fa-search"></i>
           <span>관련 봉사/지원/후원</span>
         </a>
@@ -576,7 +578,7 @@
           <hr class="sidebar-divider d-none d-md-block">
           <!-- <h1 class="h3 mb-1 text-gray-800">제목</h1> //800 의미는 글씨 진하기 -->
           <script>
-            window.onload = test()
+            test()
           </script>
           <p class="mb-1"></p>
           <!-- 
@@ -614,7 +616,6 @@
 
     </div>
     <!-- End of Page Wrapper -->
-
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fas fa-angle-up"></i>
