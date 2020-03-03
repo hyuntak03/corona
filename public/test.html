@@ -44,9 +44,10 @@
 		$.getJSON("data/korea.json",function(geojson){
 			var data = geojson.features;
 			var coordinates = [];
-			var name;
+			var name = '';
 			$.each(data, function(index, val){
 				coordinates = val.geometry.coordinates;
+				name = val.properties.CTP_KOR_MN;
 				displayArea(coordinates)
 			})
 		})
