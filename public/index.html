@@ -92,12 +92,12 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">국내 상황</h6>
-            <a class="collapse-item" href="utilities-color.html">감염 상황</a>
+            <a class="collapse-item" href="korea_situation.html">감염 상황</a>
             <a class="collapse-item" href="utilities-border.html">코로나 관련 정책</a>
             <a class="collapse-item" href="utilities-animation.html">코로나 관련 봉사 지원 및 후원</a>
             <a class="collapse-item" href="utilities-other.html">예방물품</a>
             <a class="collapse-item" href="utilities-other.html">마스크 무료 보급소 위치</a>
-            <a class="collapse-item" href="http://www.mohw.go.kr/react/popup_200128.html">코로나-19 선별진료소</a>
+            <a class="collapse-item" href="http://www.mohw.go.kr/react/popup_200128.html" target="_blank">코로나-19 선별진료소</a>
           </div>
         </div>
       </li>
@@ -105,7 +105,7 @@
       <!-- Divider -->
       <!-- <hr class="sidebar-divider"> -->
 
-      <!-- Heading -->
+      <!-- Heading --> 
       <!-- <div class="sidebar-heading">
         Addons
       </div> -->
@@ -494,16 +494,14 @@
                       <div class="text-xs font-weight-bold text-primary text-secondary mb-1">국내 치사율</div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">
                         <script type="text/javascript" language="javascript">
-                        var infected;
-                        var die;
                           $.ajax({
                             type: "GET",
                             url: "https://corona-data.herokuapp.com/die_percentage",
                             dataType: "text",
                             success: function (text) {
-                              text = text.toString()
                               console.log(text)
                               document.getElementById("die_percentage").innerText = "0." + text + "%"
+                              //document.write(text)
                             },
                             error: function (xhr, status, error) {
                               console.log(error)
