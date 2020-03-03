@@ -34,13 +34,6 @@
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d21bba611d5b2617ceca0bb656175c49"></script>
 	<script>
 
-
-		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-			mapOption = {
-				center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-				level: 14 // 지도의 확대 레벨
-			};
-
 		$.getJSON("data/korea.json",function(geojson){
 			var data = geojson.features;
 			var coordinates = [];
@@ -58,7 +51,7 @@
 			infowindow = new kakao.maps.InfoWindow({ removable: true });
 
 		// 다각형을 생상하고 이벤트를 등록하는 함수입니다
-		function displayArea(area) {
+		function displayArea(coordinates) {
 
 			var path = [];
 			var points = [];
@@ -117,7 +110,13 @@
 				infowindow.setPosition(mouseEvent.latLng);
 				infowindow.setMap(map);
 			});
+			
 		}
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+			mapOption = {
+				center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+				level: 14 // 지도의 확대 레벨
+			};
 	</script>
 </body>
 
