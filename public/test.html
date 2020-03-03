@@ -38,13 +38,13 @@
 				center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
 				level: 14 // 지도의 확대 레벨
 			};
-		$.getJSON("data/korea.json", function (geojson) {
+		$.getJSON("data/korea_map.json", function (geojson) {
 			var data = geojson.features;
 			var coordinates = [];
 			var name = '';
 			$.each(data, function(index, val){
 				coordinates = val.geometry.coordinates;
-				name = val.properties.CTP_KOR_MN;
+				name = val.properties.CTP_KOR_NM;
 				displayArea(coordinates)
 			})
 		})
