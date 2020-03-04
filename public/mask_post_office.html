@@ -311,7 +311,7 @@
                                 , '송호로 7', '용화양강로 11 - 9', '학산영동로 837', '회인로1길 4', '삼승탄부로 7', '법주사로 274', '남부로 6268', '사담길 25', '하장3길 6 - 6'
                                 , '장안로 10 - 7', '후평바리미길 6', '구티1길 15', '관기송현로 128']
 
-                            function map() {
+                            function map(locPosition) {
                                 for (var i = 0; i <= 1405; i++) {
                                     geocoder.addressSearch(test[i], function (result, status) {
 
@@ -357,7 +357,7 @@
                                     var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
                                     console.log(locPosition)
                                 })
-                                setTimeout(map(), 1000)
+                                setTimeout(map(locPosition), 1000)
                             }
                         </script>
                         <p id="post_office"></p>
