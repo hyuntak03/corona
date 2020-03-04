@@ -312,7 +312,7 @@
                             , '장안로 10 - 7', '후평바리미길 6', '구티1길 15', '관기송현로 128']
 
 
-                        for (var i = 0; i <= 1405; i++) {
+                        for (var i = 0; i <= 600; i++) {
                             geocoder.addressSearch(test[i], function (result, status) {
 
                                 // 정상적으로 검색이 완료됐으면 
@@ -341,7 +341,7 @@
                                             });
                                             var dist = poly.getLength();
                                             if (dist <= 500000) {
-                                                document.getElementById("post_office").innerText = test[i].toString();
+                                                document.getElementById("post_office").innerText = test[i];
                                             }
                                         })
                                     }
