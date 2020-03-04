@@ -311,53 +311,59 @@
                                 , '송호로 7', '용화양강로 11 - 9', '학산영동로 837', '회인로1길 4', '삼승탄부로 7', '법주사로 274', '남부로 6268', '사담길 25', '하장3길 6 - 6'
                                 , '장안로 10 - 7', '후평바리미길 6', '구티1길 15', '관기송현로 128']
 
-                            if (navigator.geolocation) {
-                                // GeoLocation을 이용해서 접속 위치를 얻어옵니다
-                                navigator.geolocation.getCurrentPosition(function(position){
+                            function geo() {
+                                if (navigator.geolocation) {
+                                    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+                                    navigator.geolocation.getCurrentPosition(function (position) {
 
-                                    var lat = position.coords.latitude; // 위도
-                                    var lon = position.coords.longitude; // 경도
+                                        var lat = position.coords.latitude; // 위도
+                                        var lon = position.coords.longitude; // 경도
 
-                                    var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-                                })
+                                        var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+                                    })
+                                }
+                                setTimeout(map(), 2000)
                             }
 
-                            for (var i = 0; i <= 1405; i++) {
-                                geocoder.addressSearch(test[i], function (result, status) {
+                            function map() {
+                                for (var i = 0; i <= 1405; i++) {
+                                    geocoder.addressSearch(test[i], function (result, status) {
 
-                                    // 정상적으로 검색이 완료됐으면 
-                                    if (status === kakao.maps.services.Status.OK) {
+                                        // 정상적으로 검색이 완료됐으면 
+                                        if (status === kakao.maps.services.Status.OK) {
 
-                                        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+                                            var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
-                                        // 결과값으로 받은 위치를 마커로 표시합니다
-                                        var marker = new kakao.maps.Marker({
-                                            map: map,
-                                            position: coords
-                                        });
+                                            // 결과값으로 받은 위치를 마커로 표시합니다
+                                            var marker = new kakao.maps.Marker({
+                                                map: map,
+                                                position: coords
+                                            });
 
-                                        var c2 = marker.getPosition()
-                                        var poly = new kakao.maps.Polyline({
-                                            // map: map, 을 하지 않아도 거리는 구할 수 있다.
-                                            path: [locPosition, c2]
-                                        });
+                                            var c2 = marker.getPosition()
+                                            var poly = new kakao.maps.Polyline({
+                                                // map: map, 을 하지 않아도 거리는 구할 수 있다.
+                                                path: [locPosition, c2]
+                                            });
 
-                                        var dist = poly.getLength();
-                                        if(poly <=50000){
-                                            document.getElementById("post_office").innerText = test[i].toString()
+                                            var dist = poly.getLength();
+                                            if (poly <= 50000) {
+                                                document.getElementById("post_office").innerText = test[i].toString()
+                                            }
+
+                                            infowindow.open(map, marker);
+
+                                            // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                                            map.setCenter(coords);
+                                        } else {
+                                            //console.log(status)
                                         }
-
-                                        infowindow.open(map, marker);
-
-                                        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-                                        map.setCenter(coords);
-                                    } else {
-                                        //console.log(status)
-                                    }
-                                });
-                            } 
+                                    });
+                                }
+                            }
                         </script>
-                        <p id = "post_office"></p>
+                        <script>geo()</script>
+                        <p id="post_office"></p>
 
                     </p>
                     <!-- <hr class="sidebar-divider d-none d-md-block"> -->
