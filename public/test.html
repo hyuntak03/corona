@@ -3,377 +3,60 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>다각형에 이벤트 등록하기2</title>
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script>
-		var seoul;
-		var gyeonggi;
-		var junbuk;
-		var keongnam;
-		var junnam;
-		var busan;
-		var keongbuk
-		var sejong;
-		var daejun;
-		var wulsan;
-		var incheon;
-		var gangwon;
-		var chungnam;
-		var jeju;
-		var chungbuk;
-		var daegu;
-		var gwangju;
+	<title>주소로 장소 표시하기</title>
 
-		function test() {
-			$.ajax({
-				type: "GET",
-				url: "https://corona-data.herokuapp.com/seoul",
-				dataType: "text",
-				async: false,
-				success: function (text) {
-					console.log(text)
-					//document.getElementById("infected").innerText = text + "명"
-					seoul = text;
-
-					//document.write(text)
-				},
-				error: function (xhr, status, error) {
-					console.log(error)
-				}
-			})
-			$.ajax({
-				type: "GET",
-				url: "https://corona-data.herokuapp.com/gyeonggi",
-				dataType: "text",
-				async: false,
-				success: function (text) {
-					console.log(text)
-					//document.getElementById("infected").innerText = text + "명"
-					gyeonggi = text;
-
-					//document.write(text)
-				},
-				error: function (xhr, status, error) {
-					console.log(error)
-				}
-			})
-			$.ajax({
-				type: "GET",
-				url: "https://corona-data.herokuapp.com/junbuk",
-				dataType: "text",
-				async: false,
-				success: function (text) {
-					console.log(text)
-					//document.getElementById("infected").innerText = text + "명"
-					junbuk = text;
-
-					//document.write(text)
-				},
-				error: function (xhr, status, error) {
-					console.log(error)
-				}
-			})
-			$.ajax({
-				type: "GET",
-				url: "https://corona-data.herokuapp.com/keongnam",
-				dataType: "text",
-				async: false,
-				success: function (text) {
-					console.log(text)
-					//document.getElementById("infected").innerText = text + "명"
-					keongnam = text;
-
-					//document.write(text)
-				},
-				error: function (xhr, status, error) {
-					console.log(error)
-				}
-			})
-			$.ajax({
-				type: "GET",
-				url: "https://corona-data.herokuapp.com/junnam",
-				dataType: "text",
-				async: false,
-				success: function (text) {
-					console.log(text)
-					//document.getElementById("infected").innerText = text + "명"
-					junnam = text;
-
-					//document.write(text)
-				},
-				error: function (xhr, status, error) {
-					console.log(error)
-				}
-			})
-			$.ajax({
-				type: "GET",
-				url: "https://corona-data.herokuapp.com/busan",
-				dataType: "text",
-				async: false,
-				success: function (text) {
-					console.log(text)
-					//document.getElementById("infected").innerText = text + "명"
-					busan = text;
-
-					//document.write(text)
-				},
-				error: function (xhr, status, error) {
-					console.log(error)
-				}
-			})
-			$.ajax({
-				type: "GET",
-				url: "https://corona-data.herokuapp.com/keongbuk",
-				dataType: "text",
-				async: false,
-				success: function (text) {
-					console.log(text)
-					//document.getElementById("infected").innerText = text + "명"
-					keongbuk = text;
-
-					//document.write(text)
-				},
-				error: function (xhr, status, error) {
-					console.log(error)
-				}
-			})
-			$.ajax({
-				type: "GET",
-				url: "https://corona-data.herokuapp.com/sejong",
-				dataType: "text",
-				async: false,
-				success: function (text) {
-					console.log(text)
-					//document.getElementById("infected").innerText = text + "명"
-					sejong = text;
-
-					//document.write(text)
-				},
-				error: function (xhr, status, error) {
-					console.log(error)
-				}
-			})
-			$.ajax({
-				type: "GET",
-				url: "https://corona-data.herokuapp.com/daejun",
-				dataType: "text",
-				async: false,
-				success: function (text) {
-					console.log(text)
-					//document.getElementById("infected").innerText = text + "명"
-					daejun = text;
-
-					//document.write(text)
-				},
-				error: function (xhr, status, error) {
-					console.log(error)
-				}
-			})
-			$.ajax({
-				type: "GET",
-				url: "https://corona-data.herokuapp.com/wulsan",
-				dataType: "text",
-				async: false,
-				success: function (text) {
-					console.log(text)
-					//document.getElementById("infected").innerText = text + "명"
-					wulsan = text;
-
-					//document.write(text)
-				},
-				error: function (xhr, status, error) {
-					console.log(error)
-				}
-			})
-			$.ajax({
-				type: "GET",
-				url: "https://corona-data.herokuapp.com/incheon",
-				dataType: "text",
-				async: false,
-				success: function (text) {
-					console.log(text)
-					//document.getElementById("infected").innerText = text + "명"
-					incheon = text;
-
-					//document.write(text)
-				},
-				error: function (xhr, status, error) {
-					console.log(error)
-				}
-			})
-			$.ajax({
-				type: "GET",
-				url: "https://corona-data.herokuapp.com/gangwon",
-				dataType: "text",
-				async: false,
-				success: function (text) {
-					console.log(text)
-					//document.getElementById("infected").innerText = text + "명"
-					gangwon = text;
-
-					//document.write(text)
-				},
-				error: function (xhr, status, error) {
-					console.log(error)
-				}
-			})
-			$.ajax({
-				type: "GET",
-				url: "https://corona-data.herokuapp.com/chungnam",
-				dataType: "text",
-				async: false,
-				success: function (text) {
-					console.log(text)
-					//document.getElementById("infected").innerText = text + "명"
-					chungnam = text;
-
-					//document.write(text)
-				},
-				error: function (xhr, status, error) {
-					console.log(error)
-				}
-			})
-			$.ajax({
-				type: "GET",
-				url: "https://corona-data.herokuapp.com/jeju",
-				dataType: "text",
-				async: false,
-				success: function (text) {
-					console.log(text)
-					//document.getElementById("infected").innerText = text + "명"
-					jeju = text;
-
-					//document.write(text)
-				},
-				error: function (xhr, status, error) {
-					console.log(error)
-				}
-			})
-			$.ajax({
-				type: "GET",
-				url: "https://corona-data.herokuapp.com/chungbuk",
-				dataType: "text",
-				async: false,
-				success: function (text) {
-					console.log(text)
-					//document.getElementById("infected").innerText = text + "명"
-					chungbuk = text;
-
-					//document.write(text)
-				},
-				error: function (xhr, status, error) {
-					console.log(error)
-				}
-			})
-			$.ajax({
-				type: "GET",
-				url: "https://corona-data.herokuapp.com/daegu",
-				dataType: "text",
-				async: false,
-				success: function (text) {
-					console.log(text)
-					//document.getElementById("infected").innerText = text + "명"
-					daegu = text;
-
-					//document.write(text)
-				},
-				error: function (xhr, status, error) {
-					console.log(error)
-				}
-			})
-			$.ajax({
-				type: "GET",
-				url: "https://corona-data.herokuapp.com/gwangju",
-				dataType: "text",
-				async: false,
-				success: function (text) {
-					console.log(text)
-					//document.getElementById("infected").innerText = text + "명"
-					gwangju = text;
-
-					//document.write(text)
-				},
-				error: function (xhr, status, error) {
-					console.log(error)
-				}
-			})
-		}
-	</script>
 </head>
 
 <body>
-	<script src="https://code.highcharts.com/maps/highmaps.js"></script>
-	<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
-	<script src="https://code.highcharts.com/mapdata/countries/kr/kr-all.js"></script>
-	<script src="data/korea_map.js"></script>
+	<p style="margin-top:-12px">
+		<em class="link"></em>
+			<!-- <a href="javascript:void(0);"
+				onclick="window.open('http:fiy.daum.net/fiy/map/CsGeneral.daum', '_blank', 'width=981, height=650')">
+				혹시 주소 결과가 잘못 나오는 경우에는 여기에 제보해주세요.
+			</a> -->
+		</em>
+	</p>
+	<div id="map" style="width:100%;height:350px;"></div>
+
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d21bba611d5b2617ceca0bb656175c49&libraries=services"></script>
 	<script>
-		test()
-	</script>
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+			mapOption = {
+				center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+				level: 3 // 지도의 확대 레벨
+			};
 
-	<div id="container"></div>
-	<script>
-		console.log('test' + seoul)
-		var data = [
-			['kr-4194', 0],
-			['kr-kg', gyeonggi], //경기
-			['kr-cb', junbuk], //전북
-			['kr-kn', keongnam], //경남
-			['kr-2685', junnam], //전남
-			['kr-pu', busan], //부산
-			['kr-2688', keongbuk], //경북
-			['kr-sj', sejong], // 세종
-			['kr-tj', daejun], //대전
-			['kr-ul', wulsan], //울산
-			['kr-in', incheon], //인천
-			['kr-kw', gangwon], //강원도
-			['kr-gn', chungnam], //충남
-			['kr-cj', jeju], //제주
-			['kr-gb', chungbuk], //충북
-			['kr-so', seoul], //서울
-			['kr-tg', daegu], //대구
-			['kr-kj', gwangju] //광주
-		];
+		// 지도를 생성합니다    
+		var map = new kakao.maps.Map(mapContainer, mapOption);
 
-		// Create the chart
-		Highcharts.mapChart('container', {
-			chart: {
-				height: 500,
-				width: 500,
-				map: 'countries/kr/kr-all'
-			},
+		// 주소-좌표 변환 객체를 생성합니다
+		var geocoder = new kakao.maps.services.Geocoder();
 
-			title: {
-				text: '대한민국 지역별 감염자수'
-			},
-			mapNavigation: {
-				enabled: true,
-				buttonOptions: {
-					verticalAlign: 'bottom'
-				}
-			},
-			colorAxis: {
-				min: 0,
-				max: 500
-			},
-			legend: {
-				enabled: false
-			},
-			series: [{
-				data: data,
-				name: '감염자',
-				states: {
-					hover: {
-						color: '#BADA55'
-					}
-				},
-				dataLabels: {
-					enabled: true,
-					format: '{point.name}'
-				}
-			}]
-		});
+		// 주소로 좌표를 검색합니다
+		geocoder.addressSearch('구미로100', function (result, status) {
 
+			// 정상적으로 검색이 완료됐으면 
+			if (status === kakao.maps.services.Status.OK) {
 
+				var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+				// 결과값으로 받은 위치를 마커로 표시합니다
+				var marker = new kakao.maps.Marker({
+					map: map,
+					position: coords
+				});
+
+				// 인포윈도우로 장소에 대한 설명을 표시합니다
+				var infowindow = new kakao.maps.InfoWindow({
+					content: '<div style="width:150px;text-align:center;padding:6px 0;">마스크</div>'
+				});
+				infowindow.open(map, marker);
+
+				// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+				map.setCenter(coords);
+			}
+		});    
 	</script>
 </body>
 
