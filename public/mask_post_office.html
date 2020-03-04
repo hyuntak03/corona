@@ -312,18 +312,14 @@
                                 , '장안로 10 - 7', '후평바리미길 6', '구티1길 15', '관기송현로 128']
 
                             if (navigator.geolocation) {
-
                                 // GeoLocation을 이용해서 접속 위치를 얻어옵니다
-                                navigator.geolocation.getCurrentPosition(function (position) {
+                                navigator.geolocation.getCurrentPosition(function(position){
 
                                     var lat = position.coords.latitude; // 위도
                                     var lon = position.coords.longitude; // 경도
 
                                     var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-                                });
-
-                            }else{
-                                alert('현재 위치 정보를 얻을수 없습니다 ㅠㅠ')
+                                })
                             }
 
                             for (var i = 0; i <= 1405; i++) {
