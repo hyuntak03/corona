@@ -34,7 +34,7 @@
 		var geocoder = new kakao.maps.services.Geocoder();
 
 		// 주소로 좌표를 검색합니다
-		var test = ['구미로100', '분당중앙고']
+		var test = ['구미로100', '구미초등학교']
 		for (var i = 0; i <= 1; i++) {
 			geocoder.addressSearch(test[i], function (result, status) {
 
@@ -57,6 +57,8 @@
 
 					// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 					map.setCenter(coords);
+				}else{
+					console.log(status)
 				}
 			});
 		} 
