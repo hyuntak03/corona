@@ -337,7 +337,7 @@
                                         });
 
                                         var c2 = marker.getPosition()
-                                        var poly = new Polyline({
+                                        var poly = new kakao.maps.Polyline({
                                             // map: map, 을 하지 않아도 거리는 구할 수 있다.
                                             path: [locPosition, c2]
                                         });
@@ -346,12 +346,13 @@
                                         if(poly <=50000){
                                             document.getElementById("post_office").innerText = test[i].toString()
                                         }
+
                                         infowindow.open(map, marker);
 
                                         // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
                                         map.setCenter(coords);
                                     } else {
-                                        console.log(status)
+                                        //console.log(status)
                                     }
                                 });
                             } 
