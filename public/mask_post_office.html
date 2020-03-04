@@ -320,11 +320,12 @@
                                         var lon = position.coords.longitude; // 경도
 
                                         var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+                                        console.log(locPosition)
                                     })
                                 }
                                 setTimeout(map(), 2000)
                             }
-
+                            geo()
                             function map() {
                                 for (var i = 0; i <= 1405; i++) {
                                     geocoder.addressSearch(test[i], function (result, status) {
@@ -362,7 +363,6 @@
                                 }
                             }
                         </script>
-                        <script>geo()</script>
                         <p id="post_office"></p>
 
                     </p>
