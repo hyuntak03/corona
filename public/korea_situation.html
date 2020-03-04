@@ -311,7 +311,7 @@
           console.log(text)
           //document.getElementById("infected").innerText = text + "명"
           gwangju = text;
-          setTimeout(map(),1000)
+          setTimeout(map(), 1000)
           //document.write(text)
         },
         error: function (xhr, status, error) {
@@ -426,6 +426,7 @@
             <h6 class="collapse-header">코로나 바이러스</h6>
             <a class="collapse-item" href="about_corona.html">코로나 바이러스란?</a>
             <a class="collapse-item" href="prevent_corona.html">코로나 예방법 및 대처법</a>
+            
           </div>
         </div>
       </li>
@@ -440,16 +441,22 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">국내 상황</h6>
-            <a class="collapse-item" href="korea_situation.html">감염 상황</a>
-            <a class="collapse-item" href="utilities-border.html">코로나 관련 정책</a>
-            <a class="collapse-item" href="utilities-animation.html">코로나 관련 봉사 지원 및 후원</a>
-            <a class="collapse-item" href="utilities-other.html">예방물품</a>
-            <a class="collapse-item" href="utilities-other.html">마스크 무료 보급소 위치</a>
+            <a class="collapse-item" href="korea_situation.html">지역별 감염 상황</a>
+            <a class="collapse-item" href="corona_law.html">코로나 관련 정책</a>
             <a class="collapse-item" href="http://www.mohw.go.kr/react/popup_200128.html" target="_blank">코로나-19
+              선별진료소</a>
           </div>
         </div>
       </li>
 
+      <!-- Divider -->
+      <!-- <hr class="sidebar-divider"> -->
+
+      <!-- Heading -->
+      <!-- <div class="sidebar-heading">
+        Addons
+      </div> -->
+      <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
           aria-controls="collapsePages">
@@ -471,14 +478,30 @@
       </li>
 
       <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMask" aria-expanded="true"
+          aria-controls="collapseMask">
+          <i class="fas fa-fw fa-file-alt"></i>
+          <span>마스크 보급 위치</span>
+        </a>
+        <div id="collapseMask" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">마스크 보급소 위치</h6>
+            <a class="collapse-item" href="mask_post_office.html">우체국</a>
+            <a class="collapse-item" href="utilities-border.html">약국</a>
+            <a class="collapse-item" href="utilities-animation.html">온라인 구입</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseVolunteer"
           aria-expanded="true" aria-controls="collapseVolunteer">
-          <i class="fas fa-fw fa-search"></i>
-          <span>관련 봉사/지원/후원</span>
+          <i class="fas fa-fw fa-donate"></i>
+          <span>관련 봉사/지원</span>
         </a>
         <div id="collapseVolunteer" class="collapse" aria-labelledby="volunteer" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">관련 봉사/지원/후원</h6>
+            <h6 class="collapse-header">관련 봉사/지원</h6>
             <a class="collapse-item" href="https://www.1365.go.kr/vols/P9210/partcptn/timeCptn.do"
               target="_">1365사이트</a>
             <a class="collapse-item" href="http://www.withgo.or.kr/web/campaign/campaignView.do?strArea=A&intSeq=2247"
@@ -492,7 +515,6 @@
           </div>
         </div>
       </li>
-
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">

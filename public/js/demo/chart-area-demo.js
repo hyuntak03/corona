@@ -27,12 +27,16 @@ function number_format(number, decimals, dec_point, thousands_sep) {
   return s.join(dec);
 }
 
+var today = new Date()
+var day = today.getDate()
+var month = today.getMonth()+1
+
 // Area Chart Example
 var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    labels: [month+"/"+day-4, month+"/"+day-3, month+"/"+day-2, month+"/"+ day -1 , month+"/"+day],
     datasets: [{
       label: "Earnings",
       lineTension: 0.3,

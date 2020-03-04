@@ -78,6 +78,7 @@
             <h6 class="collapse-header">코로나 바이러스</h6>
             <a class="collapse-item" href="about_corona.html">코로나 바이러스란?</a>
             <a class="collapse-item" href="prevent_corona.html">코로나 예방법 및 대처법</a>
+            <a class="collapse-item" href = "prevent_item.html">예방 물품</a>
           </div>
         </div>
       </li>
@@ -92,11 +93,8 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">국내 상황</h6>
-            <a class="collapse-item" href="korea_situation.html">감염 상황</a>
-            <a class="collapse-item" href="utilities-border.html">코로나 관련 정책</a>
-            <a class="collapse-item" href="utilities-animation.html">코로나 관련 봉사 지원 및 후원</a>
-            <a class="collapse-item" href="utilities-other.html">예방물품</a>
-            <a class="collapse-item" href="utilities-other.html">마스크 무료 보급소 위치</a>
+            <a class="collapse-item" href="korea_situation.html">지역별 감염 상황</a>
+            <a class="collapse-item" href="corona_law.html">코로나 관련 정책</a>
             <a class="collapse-item" href="http://www.mohw.go.kr/react/popup_200128.html" target="_blank">코로나-19
               선별진료소</a>
           </div>
@@ -132,14 +130,30 @@
       </li>
 
       <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMask"
+          aria-expanded="true" aria-controls="collapseMask">
+          <i class="fas fa-fw fa-file-alt"></i>
+          <span>마스크 보급 위치</span>
+        </a>
+        <div id="collapseMask" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">마스크 보급소 위치</h6>
+            <a class="collapse-item" href="mask_post_office.html">우체국</a>
+            <a class="collapse-item" href="utilities-border.html">약국</a>
+            <a class="collapse-item" href="utilities-animation.html">온라인 구입</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseVolunteer"
           aria-expanded="true" aria-controls="collapseVolunteer">
-          <i class="fas fa-fw fa-search"></i>
-          <span>관련 봉사/지원/후원</span>
+          <i class="fas fa-fw fa-donate"></i>
+          <span>관련 봉사/지원</span>
         </a>
         <div id="collapseVolunteer" class="collapse" aria-labelledby="volunteer" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">관련 봉사/지원/후원</h6>
+            <h6 class="collapse-header">관련 봉사/지원</h6>
             <a class="collapse-item" href="https://www.1365.go.kr/vols/P9210/partcptn/timeCptn.do"
               target="_">1365사이트</a>
             <a class="collapse-item" href="http://www.withgo.or.kr/web/campaign/campaignView.do?strArea=A&intSeq=2247"
@@ -524,7 +538,7 @@
                             dataType: "text",
                             success: function (text) {
                               console.log(text)
-                              document.getElementById("die_percentage").innerText = "0." + text + "%"
+                              document.getElementById("die_percentage").innerText = text + "%"
                               //document.write(text)
                             },
                             error: function (xhr, status, error) {
@@ -571,7 +585,7 @@
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-1 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">국내 코로나-19 확진자 증가 추세</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">국내 코로나-19 확진자 증가 추세(제작중)</h6>
                   <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                       aria-haspopup="true" aria-expanded="false">
@@ -601,35 +615,48 @@
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-4 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">오늘 추가 발생 확진자/사망자</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">오늘 추가 발생 확진자 / 확진자 발생률</h6>
                   <div class="dropdown no-arrow">
                   </div>
-                  </div>
-                  <!-- Card Body -->
-                  <div class="card-body">
-                    <div class="chart-pie pt-4 pb-2">
-                      <script type="text/javascript" language="javascript">
-                        $.ajax({
-                          type: "GET",
-                          url: "https://corona-data.herokuapp.com/infected_plus",
-                          dataType: "text",
-                          success: function (text) {
-                            console.log(text)
-                            document.getElementById("infected_plus").innerText = text + "명"
-                            //document.write(text)
-                          },
-                          error: function (xhr, status, error) {
-                            console.log(error)
-                          }
-                        })
-                      </script>
-                      <span class="mr-2">
-                       <i class='fas fa-circle text-warning'></i>확진자: + <a id = "infected_plus"></a>
-                      </span>
-                      <br></br>
-                      <br></br>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="chart-pie pt-4 pb-2">
+                    <script type="text/javascript" language="javascript">
+                      $.ajax({
+                        type: "GET",
+                        url: "https://corona-data.herokuapp.com/infected_plus",
+                        dataType: "text",
+                        success: function (text) {
+                          console.log(text)
+                          document.getElementById("infected_plus").innerText = text + "명"
+                          //document.write(text)
+                        },
+                        error: function (xhr, status, error) {
+                          console.log(error)
+                        }
+                      })
+                      $.ajax({
+                        type: "GET",
+                        url: "https://corona-data.herokuapp.com/infected_percentage",
+                        dataType: "text",
+                        success: function (text) {
+                          console.log(text)
+                          document.getElementById("infected_percentage").innerText = text + "%"
+                          //document.write(text)
+                        },
+                        error: function (xhr, status, error) {
+                          console.log(error)
+                        }
+                      })
+                    </script>
                     <span class="mr-2">
-                      <i class='fas fa-circle text-danger'></i> 사망자
+                      <i class='fas fa-circle text-warning'></i>확진자: + <a id="infected_plus"></a>
+                    </span>
+                    <br></br>
+                    <br></br>
+                    <span class="mr-2">
+                      <i class='fas fa-circle text-danger'></i> 확진자 발생률: <a id="infected_percentage"></a>
                     </span>
                   </div>
                   <!-- <div class="mt-4 text-center small">
@@ -660,29 +687,125 @@
                   <h6 class="m-0 font-weight-bold text-primary">전 세계 감염자수</h6>
                 </div>
                 <div class="card-body">
-                  <h4 class="small font-weight-bold">Server Migration <span class="float-right">20%</span></h4>
+                  <h4 class="small font-weight-bold">중국 <span class="float-right">
+                      <script type="text/javascript" language="javascript">
+                        $.ajax({
+                          type: "GET",
+                          url: "https://corona-data.herokuapp.com/china",
+                          dataType: "text",
+                          success: function (text) {
+                            //console.log(text)
+                            document.getElementById("china").innerText = text
+                            infected = text;
+                            console.log(infected)
+                            //document.write(text)
+                          },
+                          error: function (xhr, status, error) {
+                            console.log(error)
+                          }
+                        })
+                      </script>
+                      <a id="china"></a>
+                    </span></h4>
                   <div class="progress mb-4">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20"
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 92%" aria-valuenow="20"
                       aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
-                  <h4 class="small font-weight-bold">Sales Tracking <span class="float-right">40%</span></h4>
+
+                  <h4 class="small font-weight-bold">한국<span class="float-right">
+                      <script type="text/javascript" language="javascript">
+                        $.ajax({
+                          type: "GET",
+                          url: "https://corona-data.herokuapp.com/infected",
+                          dataType: "text",
+                          success: function (text) {
+                            //console.log(text)
+                            document.getElementById("kor").innerText = text + "명"
+                            infected = text;
+                            console.log(infected)
+                            //document.write(text)
+                          },
+                          error: function (xhr, status, error) {
+                            console.log(error)
+                          }
+                        })
+                      </script>
+                      <a id="kor"></a>
+                    </span></h4>
+
                   <div class="progress mb-4">
                     <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40"
+                      aria-valuemin="0" aria-valuemax="6"></div>
+                  </div>
+                  <h4 class="small font-weight-bold">이란<span class="float-right">
+                      <script type="text/javascript" language="javascript">
+                        $.ajax({
+                          type: "GET",
+                          url: "https://corona-data.herokuapp.com/iran",
+                          dataType: "text",
+                          success: function (text) {
+                            //console.log(text)
+                            document.getElementById("iran").innerText = text
+                            infected = text;
+                            console.log(infected)
+                            //document.write(text)
+                          },
+                          error: function (xhr, status, error) {
+                            console.log(error)
+                          }
+                        })
+                      </script>
+                      <a id="iran"></a>
+                    </span></h4>
+                  <div class="progress mb-4">
+                    <div class="progress-bar" role="progressbar" style="width: 2.7%" aria-valuenow="60"
                       aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
-                  <h4 class="small font-weight-bold">Customer Database <span class="float-right">60%</span></h4>
+                  <h4 class="small font-weight-bold">이탈리아<span class="float-right">
+                      <script type="text/javascript" language="javascript">
+                        $.ajax({
+                          type: "GET",
+                          url: "https://corona-data.herokuapp.com/italy",
+                          dataType: "text",
+                          success: function (text) {
+                            //console.log(text)
+                            document.getElementById("italy").innerText = text
+                            infected = text;
+                            console.log(infected)
+                            //document.write(text)
+                          },
+                          error: function (xhr, status, error) {
+                            console.log(error)
+                          }
+                        })
+                      </script>
+                      <a id="italy"></a>
+                    </span></h4>
                   <div class="progress mb-4">
-                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Payout Details <span class="float-right">80%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80"
+                    <div class="progress-bar bg-info" role="progressbar" style="width: 2.6%" aria-valuenow="80"
                       aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
-                  <h4 class="small font-weight-bold">Account Setup <span class="float-right">Complete!</span></h4>
+                  <h4 class="small font-weight-bold">일본 <span class="float-right">
+                      <script type="text/javascript" language="javascript">
+                        $.ajax({
+                          type: "GET",
+                          url: "https://corona-data.herokuapp.com/japan",
+                          dataType: "text",
+                          success: function (text) {
+                            //console.log(text)
+                            document.getElementById("japan").innerText = text
+                            console.log(infected)
+                            //document.write(text)
+                          },
+                          error: function (xhr, status, error) {
+                            console.log(error)
+                          }
+                        })
+                      </script>
+                      <a id="japan"></a>
+                    </span></h4>
                   <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100"
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 0.3%" aria-valuenow="100"
                       aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </div>
@@ -876,8 +999,7 @@
 
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-pie-demo.js">
-  </script>
+  <!-- <script src="js/demo/chart-pie-demo.js"></script> -->
 
 
 
