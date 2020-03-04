@@ -323,9 +323,11 @@
                                         console.log(locPosition)
                                     })
                                 }
-                                setTimeout(map(), 2000)
+                                setTimeout(map(), 1000)
                             }
                             geo()
+                        </script>
+                        <script>
                             function map() {
                                 for (var i = 0; i <= 1405; i++) {
                                     geocoder.addressSearch(test[i], function (result, status) {
