@@ -348,14 +348,12 @@
                                                 //console.log(test[i])
                                                 //address += test[i] + '\n';
                                                 address = result[0].address_name;
-                                                console.log(address);
+                                                console.log(result[0].address_name);
                                                 document.getElementById("post_office").innerText = address;
                                                 
                                             }
                                         })
                                     }
-                                    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-                                    //map.setCenter(coords);
                                 }
                             });
                         }
