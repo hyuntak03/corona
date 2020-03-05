@@ -346,8 +346,9 @@
                                                 path: [locPosition, c2]
                                             });
                                             var dist = poly.getLength();
-                                            if (dist <= 500000) {
-                                                document.getElementById("post_office").innerText += test[i] + '\n';
+                                            if (dist <= 50000) {
+                                                address += test[i] + '\n';
+                                                document.getElementById("post_office").innerText = address;
                                                 
                                             }
                                         })
