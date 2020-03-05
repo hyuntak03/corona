@@ -346,8 +346,10 @@
                                             });
                                             var dist = poly.getLength();
                                             if (dist <= 50000) {
-                                                console.log(test[i])
-                                                address += test[i] + '\n';
+                                                //console.log(test[i])
+                                                //address += test[i] + '\n';
+                                                address = marker.getTitle();
+                                                console.log(address);
                                                 document.getElementById("post_office").innerText = address;
                                                 
                                             }
