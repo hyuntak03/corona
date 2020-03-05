@@ -353,12 +353,14 @@
                                                 //console.log(test[i])
                                                 //console.log('yeahhhhh');
                                                 //address += test[i] + '\n';
-                                                var test_addr = marker.getTitle();
-                                                console.log(test_addr);
+                                                var address = marker.getTitle();
+                                                console.log(address);
                                                 document.getElementById("post_office").innerText = address;
                                                 
                                             }
                                         })
+                                    }else {
+                                        alert("현재 위치 정보를 가져오는데 실패했습니다.")
                                     }
                                 }
                             });
