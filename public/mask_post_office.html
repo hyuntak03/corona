@@ -349,11 +349,11 @@
                                                 path: [locPosition, c2]
                                             });
                                             var dist = poly.getLength();
-                                            if (dist <= 5000000) {
+                                            if (dist <= 25000) {
                                                 //console.log(test[i])
                                                 //console.log('yeahhhhh');
                                                 //address += test[i] + '\n';
-                                                var address = marker.getTitle();
+                                                address += marker.getTitle();
                                                 console.log(address);
                                                 document.getElementById("post_office").innerText = address;
                                                 
