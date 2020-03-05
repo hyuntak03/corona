@@ -20,7 +20,7 @@
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <script>
-    var address = "";
+        var address = "";
     </script>
 
 </head>
@@ -243,9 +243,11 @@
                 <br class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-1 text-gray-800 text-center">국내 마스크 보급 우체국 위치</h1> 
+                <h1 class="h3 mb-1 text-gray-800 text-center">국내 마스크 보급 우체국 위치</h1>
                 <div id="container"></div>
-                <div align = "center"><div id="map" style="width:300px;height:300px; "></div></div>
+                <div align="center">
+                    <div id="map" style="width:300px;height:300px; "></div>
+                </div>
 
                 <script type="text/javascript"
                     src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d21bba611d5b2617ceca0bb656175c49&libraries=services"></script>
@@ -315,50 +317,55 @@
                         , '장안로 10 - 7', '후평바리미길 6', '구티1길 15', '관기송현로 128']
 
 
-                    function map_draw() {    
-                    for (var i = 0; i <= 200; i++) {
-                        geocoder.addressSearch(test[i], function (result, status) {
+                    function map_draw() {
+                        for (var i = 0; i <= 200; i++) {
+                            geocoder.addressSearch(test[i], function (result, status) {
 
-                            // 정상적으로 검색이 완료됐으면 
-                            if (status === kakao.maps.services.Status.OK) {
+                                // 정상적으로 검색이 완료됐으면 
+                                if (status === kakao.maps.services.Status.OK) {
 
-                                var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+                                    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
-                                // 결과값으로 받은 위치를 마커로 표시합니다
-                                var marker = new kakao.maps.Marker({
-                                    map: map,
-                                    position: coords
-                                });
+                                    // 결과값으로 받은 위치를 마커로 표시합니다
+                                    var marker = new kakao.maps.Marker({
+                                        map: map,
+                                        position: coords
+                                    });
 
-                                if (navigator.geolocation) {
-                                    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
-                                    navigator.geolocation.getCurrentPosition(function (position) {
+                                    if (navigator.geolocation) {
+                                        // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+                                        navigator.geolocation.getCurrentPosition(function (position) {
 
-                                        var lat = position.coords.latitude; // 위도
-                                        var lon = position.coords.longitude; // 경도
+                                            var lat = position.coords.latitude; // 위도
+                                            var lon = position.coords.longitude; // 경도
 
-                                        var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+                                            var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
 
-                                        var c2 = marker.getPosition();
-                                        var poly = new kakao.maps.Polyline({
-                                            path: [locPosition, c2]
-                                        });
-                                        var dist = poly.getLength();
-                                        if (dist <= 500000) {
-                                            address += test[i] + '\n';
-                                        }
-                                    })
+                                            var c2 = marker.getPosition();
+                                            var poly = new kakao.maps.Polyline({
+                                                path: [locPosition, c2]
+                                            });
+                                            var dist = poly.getLength();
+                                            if (dist <= 500000) {
+                                                address += test[i] + '\n';
+                                                
+                                            }
+                                            return address;
+                                        })
+                                    }
+                                    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                                    //map.setCenter(coords);
                                 }
-                                // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-                                //map.setCenter(coords);
-                            }
-                        });
+                            });
+                        }
+                        setTimeout(test2,500)
                     }
-                    document.getElementById("post_office").innerText = address;
+                    function test2(){
+                        document.getElementById("post_office").innerText = address;
                     }
                 </script>
                 <script>
-                map_draw();
+                    map_draw();
                 </script>
                 <br></br>
                 <p id="post_office"></p>
