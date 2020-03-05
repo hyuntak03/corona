@@ -319,6 +319,7 @@
                         for (var i = 0; i <= 201; i++) {
                             geocoder.addressSearch(test[i], function (result, status) {
                                 //console.log(test[i])
+                                console.log(result[0].address_name)
                                 // 정상적으로 검색이 완료됐으면 
                                 if (status === kakao.maps.services.Status.OK) {
 
@@ -348,7 +349,7 @@
                                                 //console.log(test[i])
                                                 //address += test[i] + '\n';
                                                 address = result[0].address_name;
-                                                console.log(result[0].address_name);
+                                                console.log(marker.getPosition());
                                                 document.getElementById("post_office").innerText = address;
                                                 
                                             }
