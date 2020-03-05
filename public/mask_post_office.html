@@ -319,7 +319,7 @@
                         for (var i = 0; i <= 201; i++) {
                             geocoder.addressSearch(test[i], function (result, status) {
                                 //console.log(test[i])
-
+                                console.log(result);
                                 // 정상적으로 검색이 완료됐으면 
                                 if (status === kakao.maps.services.Status.OK) {
 
