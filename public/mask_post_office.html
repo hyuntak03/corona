@@ -19,6 +19,9 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <script>
+    var address = "";
+    </script>
 
 </head>
 
@@ -341,7 +344,7 @@
                                         });
                                         var dist = poly.getLength();
                                         if (dist <= 500000) {
-                                            document.getElementById("post_office").innerText = test[i];
+                                            address += text[i] + '\n';
                                         }
                                     })
                                 }
@@ -350,6 +353,7 @@
                             }
                         });
                     }
+                    document.getElementById("post_office").innerText = address
                 </script>
                 <br></br>
                 <p id="post_office"></p>
