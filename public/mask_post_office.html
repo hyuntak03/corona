@@ -132,8 +132,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">마스크 보급소 위치</h6>
                         <a class="collapse-item" href="mask_post_office.html">우체국</a>
-                        <a class="collapse-item" href="utilities-border.html">약국</a>
-                        <a class="collapse-item" href="utilities-animation.html">온라인 구입</a>
+                        <a class="collapse-item" href="https://www.e-gen.or.kr/egen/search_pharmacy.do?searchType=map" target = "_blank">약국</a>
+                        <a class="collapse-item" href="https://coronamask.kr/" target = "_blank">온라인 구입</a>
                     </div>
                 </div>
             </li>
@@ -144,8 +144,8 @@
                     <i class="fas fa-fw fa-donate"></i>
                     <span>관련 봉사/지원</span>
                 </a>
-                <div id="collapseVolunteer" class="collapse" aria-labelledby="volunteer"
-                    data-parent="#accordionSidebar" style="z-index:2">
+                <div id="collapseVolunteer" class="collapse" aria-labelledby="volunteer" data-parent="#accordionSidebar"
+                    style="z-index:2">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">관련 봉사/지원</h6>
                         <a class="collapse-item" href="https://www.1365.go.kr/vols/P9210/partcptn/timeCptn.do"
@@ -316,60 +316,61 @@
                         , '송호로 7', '용화양강로 11 - 9', '학산영동로 837', '회인로1길 4', '삼승탄부로 7', '법주사로 274', '남부로 6268', '사담길 25', '하장3길 6 - 6'
                         , '장안로 10 - 7', '후평바리미길 6', '구티1길 15', '관기송현로 128']
 
-                        for (var i = 0; i <= 201; i++) {
-                            geocoder.addressSearch(test[i], function (result, status) {
-                                //console.log(test[i])
-                                //console.log(result[0].address_name)
-                                // 정상적으로 검색이 완료됐으면 
-                                if (status === kakao.maps.services.Status.OK) {
+                    for (var i = 0; i <= 1406; i++) {
+                        geocoder.addressSearch(test[i], function (result, status) {
+                            //console.log(test[i])
+                            //console.log(result[0].address_name)
+                            // 정상적으로 검색이 완료됐으면 
+                            if (status === kakao.maps.services.Status.OK) {
 
-                                    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-                                    var loc = result[0].address_name;
-                                    loc = loc.toString()
+                                var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+                                var loc = result[0].address_name;
+                                loc = loc.toString()
 
-                                    // 결과값으로 받은 위치를 마커로 표시합니다
-                                    var marker = new kakao.maps.Marker({
-                                        title: loc,
-                                        map: map,
-                                        position: coords
-                                    });
-                                    //console.log("test"+marker.getTitle())
+                                // 결과값으로 받은 위치를 마커로 표시합니다
+                                var marker = new kakao.maps.Marker({
+                                    title: loc,
+                                    map: map,
+                                    position: coords
+                                });
+                                //console.log("test"+marker.getTitle())
 
-                                    if (navigator.geolocation) {
-                                        // GeoLocation을 이용해서 접속 위치를 얻어옵니다
-                                        navigator.geolocation.getCurrentPosition(function (position) {
+                                if (navigator.geolocation) {
+                                    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+                                    navigator.geolocation.getCurrentPosition(function (position) {
 
-                                            var lat = position.coords.latitude; // 위도
-                                            var lon = position.coords.longitude; // 경도
+                                        var lat = position.coords.latitude; // 위도
+                                        var lon = position.coords.longitude; // 경도
 
-                                            var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+                                        var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
 
-                                            var c2 = marker.getPosition();
-                                            var poly = new kakao.maps.Polyline({
-                                                path: [locPosition, c2]
-                                            });
-                                            var dist = poly.getLength();
-                                            if (dist <= 50000) {
-                                                //console.log(test[i])
-                                                //console.log('yeahhhhh');
-                                                //address += test[i] + '\n';
-                                                address += marker.getTitle() + "\n"; 
-                                                console.log(address);
-                                                document.getElementById("post_office").innerText = address;
-                                                
-                                            }
-                                        })
-                                    }else {
-                                        alert("현재 위치 정보를 가져오는데 실패했습니다.")
-                                    }
+                                        var c2 = marker.getPosition();
+                                        var poly = new kakao.maps.Polyline({
+                                            path: [locPosition, c2]
+                                        });
+                                        var dist = poly.getLength();
+                                        if (dist <= 25000) {
+                                            //console.log(test[i])
+                                            //console.log('yeahhhhh');
+                                            //address += test[i] + '\n';
+                                            address += marker.getTitle()+": "+dist + "\n";
+                                            console.log(address);
+                                            document.getElementById("post_office").innerText = address;
+
+                                        }
+                                    })
+                                } else {
+                                    alert("현재 위치 정보를 가져오는데 실패했습니다.")
                                 }
-                            });
-                        }
+                            }
+                        });
+                    }
                 </script>
                 <br></br>
+                <hr class="sidebar-divider d-none d-md-block">
+                <h1 class="h3 mb-1 text-gray-800">내 위치 주변 우체국(반경 25km)</h1>
                 <p id="post_office"></p>
                 <p class="mb-1">
-
                 </p>
                 <!-- <hr class="sidebar-divider d-none d-md-block"> -->
                 <!-- Page body -->
@@ -394,7 +395,9 @@
                         <br></br>
                         <br></br>
                         <br></br>
-                        <span>Copyright &copy; Corona-19 News 2020</span>
+                        <span>Copyright &copy; 코로나 갤러리
+                            <br>개발자: <a href="mailto:hyuntak03.lee@gmail.com">hyuntak03.lee@gmail.com</a></br>
+                        </span>
                     </div>
                 </div>
             </footer>
