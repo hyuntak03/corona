@@ -318,7 +318,7 @@
 
 
                     function map_draw() {
-                        for (var i = 0; i <= 200; i++) {
+                        for (var i = 0; i <= 201; i++) {
                             geocoder.addressSearch(test[i], function (result, status) {
 
                                 // 정상적으로 검색이 완료됐으면 
@@ -347,6 +347,7 @@
                                             });
                                             var dist = poly.getLength();
                                             if (dist <= 50000) {
+                                                console.log(test[i])
                                                 address += test[i] + '\n';
                                                 document.getElementById("post_office").innerText = address;
                                                 
