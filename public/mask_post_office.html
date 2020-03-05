@@ -317,8 +317,8 @@
                         , '장안로 10 - 7', '후평바리미길 6', '구티1길 15', '관기송현로 128']
 
                         for (var i = 0; i <= 201; i++) {
-                            console.log(i)
                             geocoder.addressSearch(test[i], function (result, status) {
+                                console.log(test[i])
 
                                 // 정상적으로 검색이 완료됐으면 
                                 if (status === kakao.maps.services.Status.OK) {
