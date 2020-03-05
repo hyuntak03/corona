@@ -319,7 +319,7 @@
                         for (var i = 0; i <= 201; i++) {
                             geocoder.addressSearch(test[i], function (result, status) {
                                 //console.log(test[i])
-                                console.log(result[0].address_name)
+                                //console.log(result[0].address_name)
                                 // 정상적으로 검색이 완료됐으면 
                                 if (status === kakao.maps.services.Status.OK) {
 
@@ -333,7 +333,7 @@
                                         map: map,
                                         position: coords
                                     });
-                                    console.log("test"+marker.getTitle())
+                                    //console.log("test"+marker.getTitle())
 
                                     if (navigator.geolocation) {
                                         // GeoLocation을 이용해서 접속 위치를 얻어옵니다
@@ -351,7 +351,7 @@
                                             var dist = poly.getLength();
                                             if (dist <= 5000000) {
                                                 //console.log(test[i])
-                                                console.log('yeahhhhh')
+                                                //console.log('yeahhhhh');
                                                 //address += test[i] + '\n';
                                                 var test_addr = marker.getTitle();
                                                 console.log(test_addr);
@@ -363,7 +363,6 @@
                                 }
                             });
                         }
-                        console.log("test222" + maker.getTitle())
                 </script>
                 <br></br>
                 <p id="post_office"></p>
