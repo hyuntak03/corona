@@ -245,7 +245,7 @@
                 <!-- Page Heading -->
                 <h1 class="h3 mb-1 text-gray-800 text-center">국내 마스크 보급 우체국 위치</h1>
                 <div id="container"></div>
-                <div align="center">
+                <div align="center" style="z-index:1">
                     <div id="map" style="width:300px;height:300px; "></div>
                 </div>
 
@@ -347,10 +347,9 @@
                                             });
                                             var dist = poly.getLength();
                                             if (dist <= 500000) {
-                                                address += test[i] + '\n';
+                                                document.getElementById("post_office").innerText += test[i] + '\n';
                                                 
                                             }
-                                            return address;
                                         })
                                     }
                                     // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
@@ -358,10 +357,6 @@
                                 }
                             });
                         }
-                        setTimeout("test2()",500)
-                    }
-                    function test2(){
-                        document.getElementById("post_office").innerText = address;
                     }
                 </script>
                 <script>
