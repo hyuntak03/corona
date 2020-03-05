@@ -353,7 +353,9 @@
                                             //console.log(test[i])
                                             //console.log('yeahhhhh');
                                             //address += test[i] + '\n';
-                                            address += marker.getTitle()+": "+dist + "\n";
+                                            var km = (dist/1000)
+                                            var distance = km.toFixed(1);
+                                            address += marker.getTitle()+" () "+ dist +"km" + "\n";
                                             console.log(address);
                                             document.getElementById("post_office").innerText = address;
 
