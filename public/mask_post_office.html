@@ -325,6 +325,7 @@
 
                                     var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
                                     var loc = result[0].address_name;
+                                    loc = loc.toString()
 
                                     // 결과값으로 받은 위치를 마커로 표시합니다
                                     var marker = new kakao.maps.Marker({
@@ -332,6 +333,7 @@
                                         map: map,
                                         position: coords
                                     });
+                                    console.log("test"+marker.getTitle())
 
                                     if (navigator.geolocation) {
                                         // GeoLocation을 이용해서 접속 위치를 얻어옵니다
@@ -350,8 +352,8 @@
                                             if (dist <= 500000) {
                                                 //console.log(test[i])
                                                 //address += test[i] + '\n';
-                                                address = marker.getTitle();
-                                                console.log(marker.getTitle());
+                                                var test_addr = marker.getTitle();
+                                                console.log(test_addr);
                                                 document.getElementById("post_office").innerText = address;
                                                 
                                             }
