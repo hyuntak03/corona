@@ -19,7 +19,8 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <script data-ad-client="ca-pub-4358965198936727" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script data-ad-client="ca-pub-4358965198936727" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
         var address = "";
     </script>
@@ -133,8 +134,9 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">마스크 보급소 위치</h6>
                         <a class="collapse-item" href="mask_post_office.html">우체국</a>
-                        <a class="collapse-item" href="https://www.e-gen.or.kr/egen/search_pharmacy.do?searchType=map" target = "_blank">약국</a>
-                        <a class="collapse-item" href="https://coronamask.kr/" target = "_blank">온라인 구입</a>
+                        <a class="collapse-item" href="https://www.e-gen.or.kr/egen/search_pharmacy.do?searchType=map"
+                            target="_blank">약국</a>
+                        <a class="collapse-item" href="https://coronamask.kr/" target="_blank">온라인 구입(코로나마스크)</a>
                     </div>
                 </div>
             </li>
@@ -164,9 +166,28 @@
                 </div>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMask"
+                    aria-expanded="true" aria-controls="collapseMask">
+                    <i class="fas fa-fw fa-file-alt"></i>
+                    <span>기타 현황 사이트</span>
+                </a>
+                <div id="collapseMask" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">현황,발생 추이 확인가능</h6>
+                        <a class="collapse-item" href="http://livecorona.co.kr/" target="_blank">라이브 코로나맵</a>
+                        <a class="collapse-item" href="https://www.coronanow.kr/" target="_blank">코로나나우</a>
+                        <a class="collapse-item" href="https://wuhanvirus.kr/" target="_blank">코로나19 실시간 상황판</a>
+                        <a class="collapse-item" href="https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6" target="_blank">존 홉킨스 대학 세계 현황</a>
+                        
+                    </div>
+                </div>
+            </li>
+
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="qeustion.html">
                     <i class="fas fa-fw fa-comments"></i>
                     <span>문의</span></a>
             </li>
@@ -245,8 +266,9 @@
 
                 <!-- Page Heading -->
                 <h1 class="h3 mb-1 text-gray-800 text-center">국내 마스크 보급 우체국 위치</h1>
-                <p class = "text-center" >정보를 가져오는데 시간이 좀 걸릴수 있습니다.</p>
-                <p class = "text-center">(목록이 뜨지 않을시 <a href="https://www.corona-hub.kr/mask_post_office.html">https</a> 로 다시 접속해주세요.)</p>
+                <p class="text-center">정보를 가져오는데 시간이 좀 걸릴수 있습니다.</p>
+                <p class="text-center">(목록이 뜨지 않을시 <a href="https://www.corona-hub.kr/mask_post_office.html">https</a> 로
+                    다시 접속해주세요.)</p>
                 <div id="container"></div>
                 <div align="center" style="z-index:1">
                     <div id="map" style="width:400px;height:400px; "></div>
@@ -356,9 +378,9 @@
                                             //console.log(test[i])
                                             //console.log('yeahhhhh');
                                             //address += test[i] + '\n';
-                                            var km = (dist/1000)
+                                            var km = (dist / 1000)
                                             var distance = km.toFixed(1);
-                                            address += marker.getTitle()+" ( "+ distance +"km )" + "\n";
+                                            address += marker.getTitle() + " ( " + distance + "km )" + "\n";
                                             console.log(address);
                                             document.getElementById("post_office").innerText = address;
 
@@ -367,7 +389,7 @@
                                 } else {
                                     //alert("현재 위치 정보를 가져오는데 실패했습니다.")
                                 }
-                            }else {
+                            } else {
                                 //alert("https로 접속해주세요")
                             }
                         });
@@ -376,8 +398,9 @@
                 <br></br>
                 <hr class="sidebar-divider d-none d-md-block">
                 <h1 class="h3 mb-1 text-gray-800 text-center">내 위치 주변 우체국(반경 25km)</h1>
-                <p class = "text-center">정보를 가져오는데 시간이 좀 걸릴수 있습니다.</p>
-                <p class="text-center">(목록이 뜨지 않을시 <a href="https://www.corona-hub.kr/mask_post_office.html">https</a> 로 다시 접속해주세요.)</p>
+                <p class="text-center">정보를 가져오는데 시간이 좀 걸릴수 있습니다.</p>
+                <p class="text-center">(목록이 뜨지 않을시 <a href="https://www.corona-hub.kr/mask_post_office.html">https</a> 로
+                    다시 접속해주세요.)</p>
                 <div class="text-center">
                     <p id="post_office"></p>
                 </div>
