@@ -313,7 +313,7 @@
           console.log(text)
           //document.getElementById("infected").innerText = text + "명"
           gwangju = text;
-          setTimeout(map(), 1000)
+          setTimeout(map(), 200)
           //document.write(text)
         },
         error: function (xhr, status, error) {
@@ -349,8 +349,8 @@
       // Create the chart
       Highcharts.mapChart('container', {
         chart: {
-          height: 500,
-          width: 500,
+          height: 300,
+          width: 300,
           map: 'countries/kr/kr-all'
         },
 
@@ -616,19 +616,17 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-1 text-gray-800 text-center">국내 지역별 확진자수</h1>
-          <div class="text-xs font-weight-bold text-primary text-gray-600 mb-1 text-center">데이터를 가져오는데 조금 시간이 걸릴수도 있습니다.</div>
+          <h1 class="h3 mb-1 text-gray-800">국내 지역별 확진자수</h1>
+          <div class="text-xs font-weight-bold text-primary text-gray-600 mb-1">데이터를 가져오는데 조금 시간이 걸릴수도 있습니다.</div>
           <div id="container"></div>
           <hr class="sidebar-divider d-none d-md-block">
           <!-- <h1 class="h3 mb-1 text-gray-800">제목</h1> //800 의미는 글씨 진하기 -->
-          <div align="center">
-            <script>
-              test()
-            </script>
-          </div>
+          <script>
+            test()
+          </script>
           <p class="mb-1"></p>
           <!-- 
-          <hr class="sidebar-divider d-none d-md-block"> -->
+                    <hr class="sidebar-divider d-none d-md-block"> -->
           <!-- Page body -->
           <br class="mb-1"></p>
           <!-- Content Row -->
@@ -640,8 +638,6 @@
         <footer class="sticky-footer bg-light">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <br></br>
-              <br></br>
               <br></br>
               <br></br>
               <br></br>
