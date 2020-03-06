@@ -658,7 +658,7 @@
             <div class="col-xl-8 col-lg-7">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
-                <div class="card-header py-2 d-flex flex-row align-items-center justify-content-between">
+                <div class="card-header py-1 d-flex flex-row align-items-center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary">지금까지의 코로나 바이러스 사건들</h6>
                   <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
@@ -684,15 +684,15 @@
                     <script src="js/demo/calendar.js"></script>
                   </div>
                   <div class="dropdown-divider"></div>
-                  <div class="text-center">
+                  <div class="text-center" style="font-size:1.4em">
+                    <br></br>
                     <p id="action">
                       <script src="js/demo/calendar.js"></script>
                     </p>
                     <br></br>
-                    <br></br>
-                    <br>코로나-19 사건 제보는 개발자의<a href="mailto:hyuntak03.lee@gmail.com">이메일</a>로 연락주세요</br>
-                    <br>(모바일에서는 해상도의 문제로 잘 작동하지 않습니다)빠른 시일내 해결하도록 하겠습니다.</br>
                   </div>
+                  <br>코로나-19 사건 제보는 개발자의<a href="mailto:hyuntak03.lee@gmail.com">이메일</a>로 연락주세요</br>
+                  (모바일에서는 해상도의 문제로 잘 작동하지 않습니다)빠른 시일내 해결하도록 하겠습니다.
                 </div>
               </div>
             </div>
@@ -702,7 +702,7 @@
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-4 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">오늘 추가 발생 확진자 / 확진자 발생률</h6>
+                  <h6 class="m-0 font-weight-bold text-primary" style="font-size:1em">오늘 추가 발생 확진자 / 확진자 발생률</h6>
                   <div class="dropdown no-arrow">
                   </div>
                 </div>
@@ -737,13 +737,13 @@
                         }
                       })
                     </script>
-                    <span class="mr-2">
+                    <span class="mr-2" style="font-size:1.4em">
                       <i class='fas fa-circle text-warning'></i>확진자: + <a id="infected_plus"></a>
                     </span>
                     <br></br>
                     <br></br>
-                    <span class="mr-2">
-                      <i class='fas fa-circle text-danger'></i> 확진자 발생률: <a id="infected_percentage"></a>
+                    <span class="mr-2" style="font-size:1.4em">
+                      <i class='fas fa-circle text-danger' ></i> 확진자 발생률: <a id="infected_percentage"></a>
                     </span>
                   </div>
                   <!-- <div class="mt-4 text-center small">
@@ -803,11 +803,11 @@
                       <script type="text/javascript" language="javascript">
                         $.ajax({
                           type: "GET",
-                          url: "https://corona-data.herokuapp.com/infected",
+                          url: "https://corona-data.herokuapp.com/korea",
                           dataType: "text",
                           success: function (text) {
                             //console.log(text)
-                            document.getElementById("kor").innerText = text + "명"
+                            document.getElementById("kor").innerText = text
                             infected = text;
                             console.log(infected)
                             //document.write(text)

@@ -23,21 +23,21 @@ function start() {
 }
 
 function next() {
-    count += 1;
-    if (date[count] == null) {
+    if (date[count + 1] == null) {
         document.getElementById("date").innerText = now_year;
         document.getElementById("action").innerText = "아직 업데이트 된 소식이 없습니다.";
     } else {
+        count += 1;
         document.getElementById("date").innerText = date[count];
         document.getElementById("action").innerText = action[count];
     }
 }
 
 function previous() {
-    count -= 1;
-    if (date[count] == null) {
+    if (date[count-1] == null) {
         alert("이전의 사건은 없습니다.")
     } else {
+        count -= 1;
         document.getElementById("date").innerText = date[count];
         document.getElementById("action").innerText = action[count];
     }
