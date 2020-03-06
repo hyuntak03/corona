@@ -27,13 +27,13 @@
   <script src="https://code.highcharts.com/mapdata/countries/kr/kr-all.js"></script>
   <script src="data/korea_map.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script>
-  var height;
-  var width;
-</script>
+  <script>
+    var height;
+    var width;
+  </script>
 
-<script>
-  var seoul;
+  <script>
+    var seoul;
     var gyeonggi;
     var junbuk;
     var keongnam;
@@ -317,15 +317,15 @@
           console.log(text)
           //document.getElementById("infected").innerText = text + "명"
           gwangju = text;
-          setTimeout(map(), 200)
+          setTimeout(device_check(), 200)
           //document.write(text)
         },
         error: function (xhr, status, error) {
           console.log(error)
         }
       })
-      }
-    </script>
+    }
+  </script>
   <script>
     function device_check() {
       var pc_device = "win16|win32|win64|mac|macintel";
@@ -375,8 +375,8 @@
       // Create the chart
       Highcharts.mapChart('container', {
         chart: {
-          height: 300,
-          width: 300,
+          height: height,
+          width: width,
           map: 'countries/kr/kr-all'
         },
 
@@ -546,23 +546,24 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSite"
-            aria-expanded="true" aria-controls="collapseSite">
-            <i class="fas fa-fw fa-file-alt"></i>
-            <span>기타 현황 사이트</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSite" aria-expanded="true"
+          aria-controls="collapseSite">
+          <i class="fas fa-fw fa-file-alt"></i>
+          <span>기타 현황 사이트</span>
         </a>
-        <div id="collapseSite" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">현황,발생 추이 확인가능</h6>
-                <a class="collapse-item" href="http://livecorona.co.kr/" target="_blank">라이브 코로나맵</a>
-                <a class="collapse-item" href="https://www.coronanow.kr/" target="_blank">코로나나우</a>
-                <a class="collapse-item" href="https://wuhanvirus.kr/" target="_blank">코로나19 실시간 상황판</a>
-                <a class="collapse-item" href="https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6" target="_blank">존 홉킨스 대학 세계 현황</a>
-                
-            </div>
+        <div id="collapseSite" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">현황,발생 추이 확인가능</h6>
+            <a class="collapse-item" href="http://livecorona.co.kr/" target="_blank">라이브 코로나맵</a>
+            <a class="collapse-item" href="https://www.coronanow.kr/" target="_blank">코로나나우</a>
+            <a class="collapse-item" href="https://wuhanvirus.kr/" target="_blank">코로나19 실시간 상황판</a>
+            <a class="collapse-item"
+              href="https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6"
+              target="_blank">존 홉킨스 대학 세계 현황</a>
+
+          </div>
         </div>
-    </li>
+      </li>
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
