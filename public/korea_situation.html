@@ -27,9 +27,13 @@
   <script src="https://code.highcharts.com/mapdata/countries/kr/kr-all.js"></script>
   <script src="data/korea_map.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+  var height;
+  var width;
+</script>
 
-  <script>
-    var seoul;
+<script>
+  var seoul;
     var gyeonggi;
     var junbuk;
     var keongnam;
@@ -320,6 +324,28 @@
           console.log(error)
         }
       })
+      }
+    </script>
+  <script>
+    function device_check() {
+      var pc_device = "win16|win32|win64|mac|macintel";
+
+      // 접속한 디바이스 환경
+      var this_device = navigator.platform;
+
+      if (this_device) {
+
+        if (pc_device.indexOf(navigator.platform.toLowerCase()) < 0) {
+          height = 300;
+          width = 300;
+          console.log('MOBILE');
+        } else {
+          console.log('PC');
+          hight = 500;
+          width = 500;
+        }
+      }
+      return map()
     }
   </script>
   <script>
