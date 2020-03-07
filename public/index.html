@@ -809,7 +809,7 @@
                       <a id="china"></a>
                     </span></h4>
                   <div class="progress mb-4">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 92%" aria-valuenow="20"
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 84%" aria-valuenow="20"
                       aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
 
@@ -835,33 +835,10 @@
                     </span></h4>
 
                   <div class="progress mb-4">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40"
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 7.1%" aria-valuenow="40"
                       aria-valuemin="0" aria-valuemax="6"></div>
                   </div>
-                  <h4 class="small font-weight-bold">이탈리아<span class="float-right">
-                      <script type="text/javascript" language="javascript">
-                        $.ajax({
-                          type: "GET",
-                          url: "https://corona-data.herokuapp.com/italy",
-                          dataType: "text",
-                          success: function (text) {
-                            //console.log(text)
-                            document.getElementById("italy").innerText = text
-                            infected = text;
-                            console.log(infected)
-                            //document.write(text)
-                          },
-                          error: function (xhr, status, error) {
-                            console.log(error)
-                          }
-                        })
-                      </script>
-                      <a id="italy"></a>
-                    </span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar" role="progressbar" style="width: 2.7%" aria-valuenow="60"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
+
                   <h4 class="small font-weight-bold">이란<span class="float-right">
                       <script type="text/javascript" language="javascript">
                         $.ajax({
@@ -883,9 +860,35 @@
                       <a id="iran"></a>
                     </span></h4>
                   <div class="progress mb-4">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 2.6%" aria-valuenow="80"
+                    <div class="progress-bar" role="progressbar" style="width: 4.9%" aria-valuenow="60"
                       aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
+
+                  <h4 class="small font-weight-bold">이탈리아<span class="float-right">
+                      <script type="text/javascript" language="javascript">
+                        $.ajax({
+                          type: "GET",
+                          url: "https://corona-data.herokuapp.com/italy",
+                          dataType: "text",
+                          success: function (text) {
+                            //console.log(text)
+                            document.getElementById("italy").innerText = text
+                            infected = text;
+                            console.log(infected)
+                            //document.write(text)
+                          },
+                          error: function (xhr, status, error) {
+                            console.log(error)
+                          }
+                        })
+                      </script>
+                      <a id="italy"></a>
+                    </span></h4>
+                  <div class="progress mb-4">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: 4.8%" aria-valuenow="80"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+
                   <h4 class="small font-weight-bold">일본 <span class="float-right">
                       <script type="text/javascript" language="javascript">
                         $.ajax({
@@ -906,7 +909,7 @@
                       <a id="japan"></a>
                     </span></h4>
                   <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 0.3%" aria-valuenow="100"
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 0.4%" aria-valuenow="100"
                       aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </div>
