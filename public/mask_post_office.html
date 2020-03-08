@@ -436,6 +436,10 @@
                                             title: "내 위치", // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
                                             image: markerImage // 마커 이미지 
                                         });
+                                        
+                                        map.setLevel(9);
+                                        map.setCenter(locPosition);
+                                        map.relayout();
 
                                         var iwContent = '<div style="padding:5px;">내 위치</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
                                             iwPosition = new kakao.maps.LatLng(locPosition); //인포윈도우 표시 위치입니다
@@ -452,9 +456,6 @@
                                             //console.log(test[i])
                                             //console.log('yeahhhhh');
                                             //address += test[i] + '\n';
-                                            map.setLevel(8);
-                                            map.setCenter(locPosition);
-                                            map.relayout();
                                             var km = (dist / 1000)
                                             var distance = km.toFixed(1);
                                             address += marker.getTitle() + " ( " + distance + "km )" + "\n";
