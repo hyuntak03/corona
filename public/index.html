@@ -744,7 +744,7 @@
                         dataType: "text",
                         success: function (text) {
                           console.log(text)
-                          document.getElementById("die").innerText = text + "명"
+                          document.getElementById("die_plus").innerText = text + "명"
                           //document.write(text)
                         },
                         error: function (xhr, status, error) {
@@ -753,12 +753,12 @@
                       })
                     </script>
                     <span class="mr-2" style="font-size:1.4em">
-                      <i class='fas fa-circle text-warning'></i>확진자: + <a id="infected_plus"></a>
+                      <i class='fas fa-circle text-warning'></i> 확진자: + <a id="infected_plus"></a>
                     </span>
                     <br></br>
                     <br></br>
                     <span class="mr-2" style="font-size:1.4em">
-                      <i class='fas fa-circle text-danger'></i> 사망자: <a id="die_plus"></a>
+                      <i class='fas fa-circle text-danger'></i> 사망자: + <a id="die_plus"></a>
                     </span>
                   </div>
                   <!-- <div class="mt-4 text-center small">
