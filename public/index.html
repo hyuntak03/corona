@@ -717,7 +717,7 @@
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-4 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary" style="font-size:1em">오늘 추가 발생 확진자 / 확진자 발생률</h6>
+                  <h6 class="m-0 font-weight-bold text-primary" style="font-size:1em">오늘 추가 발생 확진자 / 사망자</h6>
                   <div class="dropdown no-arrow">
                   </div>
                 </div>
@@ -740,11 +740,11 @@
                       })
                       $.ajax({
                         type: "GET",
-                        url: "https://corona-data.herokuapp.com/infected_percentage",
+                        url: "https://corona-data.herokuapp.com/die_percentage",
                         dataType: "text",
                         success: function (text) {
                           console.log(text)
-                          document.getElementById("infected_percentage").innerText = text + "%"
+                          document.getElementById("die").innerText = text + "명"
                           //document.write(text)
                         },
                         error: function (xhr, status, error) {
@@ -758,7 +758,7 @@
                     <br></br>
                     <br></br>
                     <span class="mr-2" style="font-size:1.4em">
-                      <i class='fas fa-circle text-danger'></i> 확진자 발생률: <a id="infected_percentage"></a>
+                      <i class='fas fa-circle text-danger'></i> 사망자: <a id="die_percentage"></a>
                     </span>
                   </div>
                   <!-- <div class="mt-4 text-center small">
