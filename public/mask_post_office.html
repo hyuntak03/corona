@@ -390,6 +390,12 @@
                         '천등박달로 120','감노로 1403','신덕로 788','조동1길 53','쇠실로 1032','세성로 68','주치길 30','강수로 321','중앙탑길 145','미륵송계로6길 28-13',
                         '평동로2길 9','월악로26길 18-1','주포로7길 2','시곡포전로1길 14-1','약초로 62','청풍호로 1037','청풍호로 2113']
 
+                            var imageSrc = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+                            var imageSize = new kakao.maps.Size(24, 35);
+
+                            // 마커 이미지를 생성합니다    
+                            var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+
                     for (var i = 0; i <= 1406; i++) {
                         geocoder.addressSearch(test[i], function (result, status) {
                             //console.log(test[i])
@@ -427,9 +433,15 @@
                                             //console.log(test[i])
                                             //console.log('yeahhhhh');
                                             //address += test[i] + '\n';
-                                            map.setLevel(5);
+                                            map.setLevel(7);
                                             map.setCenter(locPosition);
                                             map.relayout();
+                                            var marker = new kakao.maps.Marker({
+                                                map: map, // 마커를 표시할 지도
+                                                position: locPosition, // 마커를 표시할 위치
+                                                title: "내 위치", // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                                                image: markerImage // 마커 이미지 
+                                            });
                                             var km = (dist / 1000)
                                             var distance = km.toFixed(1);
                                             address += marker.getTitle() + " ( " + distance + "km )" + "\n";
