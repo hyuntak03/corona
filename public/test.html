@@ -20,14 +20,23 @@
 		});
 		// 데이터를 가져오기 위해 jQuery를 사용합니다
 		// 데이터를 가져와 마커를 생성하고 클러스터러 객체에 넘겨줍니다
-		$.get("data/pharmacy.json", function (data) {
-			$.each(data, function (i, data) {
-				var marker = new kakao.maps.Marker({
-					map: map,
-					position: new kakao.maps.LatLng(data.lat, data.lng)
-				})
-			})
-		});
+		$.ajax({
+			type: "GET",
+			url: "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/stores/json",
+			dataType: "text",
+			success: function (text) {
+				console.log(text)
+				for(var i; i < text.position.length; i++){
+					var markers = new kakao.maps.Markers({
+						map: map,
+						position: new kakao.maps.LatLng(text.position.lat, text.position.lng)
+					})
+				}
+			},
+			error: function (xhr, status, error) {
+				console.log(error)
+			}
+		})
 	</script>
 </body>
 
