@@ -36,7 +36,7 @@
 </head>
 
 <body>
-	<div id="map" style="width: 500px ;height:500px; position: relative;"></div>
+	<div id="map" style="width: 500px ;height:500px; position: relative; z-index: 1;"></div>
 
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d21bba611d5b2617ceca0bb656175c49"></script>
@@ -62,6 +62,7 @@
 						})
 						var button = document.createElement("button");
 						button.className = "accordion"
+						button.style = "z-index:2";
 						button.innerHTML = position.name;
 					}
 				})
@@ -73,10 +74,10 @@
 
 	</script>
 
-	<button class="accordion">근처 우체국</button>
+	<!-- <button class="accordion">근처 우체국</button>
 	<div class="panel">
 		<p>test</p>
-	</div>
+	</div> -->
 
 	<script>
 		var acc = document.getElementsByClassName("accordion");
