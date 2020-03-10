@@ -36,7 +36,12 @@
 </head>
 
 <body>
-	<div id="map" style="width:100%;height:350px;"></div>
+	<div id="map" style="width:100%;height:350px;">
+		<button class="accordion">근처 우체국</button>
+		<div class="panel">
+			<p>test</p>
+		</div>
+	</div>
 
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d21bba611d5b2617ceca0bb656175c49"></script>
@@ -70,10 +75,6 @@
 
 	</script>
 
-	<button class="accordion">근처 우체국</button>
-	<div class="panel">
-		<p>test</p>
-	</div>
 	<script>
 		var acc = document.getElementsByClassName("accordion");
 		var i;
