@@ -8,14 +8,14 @@
 </head>
 
 <body>
-	<div id="map" style="width:100%;height: 100%;"></div>
+	<div id="map" style="width:100%;height:350px;"></div>
 
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d21bba611d5b2617ceca0bb656175c49"></script>
 	<script>
 		var map = new kakao.maps.Map(document.getElementById('map'), { // 지도를 표시할 div
 			center: new kakao.maps.LatLng(36.2683, 127.6358), // 지도의 중심좌표 
-			level: 5 // 지도의 확대 레벨 
+			level: 14 // 지도의 확대 레벨 
 		});
 
 		$.ajax({
