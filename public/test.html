@@ -21,7 +21,7 @@
 
 		$.ajax({
 			type: "GET",
-			url: "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/stores/json",
+			url: "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByAddr/json",
 			dataType: "json",
 			success: function (data) {
 				$.each(data.storeInfos, function (i, position) {
@@ -30,8 +30,25 @@
 						var marker_position = new kakao.maps.LatLng(position.lat, position.lng);
 						var marker = new kakao.maps.Marker({
 							map: map,
-							position: marker_position
+							title: position.name,
+							position: marker_position,
+							clickable: true
 						})
+
+						var iwContent = '<div style="padding:5px;">position.name</div><br>position.stock_at</br>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+							iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+						// 인포윈도우를 생성합니다
+						var infowindow = new kakao.maps.InfoWindow({
+							content: iwContent,
+							removable: iwRemoveable
+						});
+
+						// 마커에 클릭이벤트를 등록합니다
+						kakao.maps.event.addListener(marker, 'click', function () {
+							// 마커 위에 인포윈도우를 표시합니다
+							infowindow.open(map, marker);
+						});
 					}
 				})
 			},
@@ -43,4 +60,4 @@
 	</script>
 </body>
 
-</html>	
+</html>
