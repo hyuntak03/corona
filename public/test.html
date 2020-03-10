@@ -18,27 +18,24 @@
 			level: 14 // 지도의 확대 레벨 
 		});
 
-		$.ajax({
-			type: "GET",
-			url: "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByAddr/json",
-			dataType: "json",
-			success: function (data) {
-				$.each(data.storeInfos, function (i, position) {
-					if (position.type == "01") {
-						console.log(position.type)
-						var marker_position = new kakao.maps.LatLng(position.lat, position.lng);
-						var marker = new kakao.maps.Marker({
-							map: map,
-							position: marker_position
-						})
-					}
+        $.ajax({
+            type: "GET",
+            url: "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/stores/json",
+            dataType: "json",
+            success: function (data) {
+                console.log(data.storeInfos)
+				$.each(data.position, function(i, position){
+					var marker_position = new kakao.maps.LatLng(position.lat, position.lng)
+					var marker = new kakao.maps.LatLng({
+						map: map,
+						position: marker_position
+					})
 				})
-			},
-			error: function (xhr, status, error) {
-				console.log(error)
-			}
-		});
-
+            },
+            error: function (xhr, status, error) {
+                console.log(error)
+            }
+        });
 	</script>
 </body>
 
