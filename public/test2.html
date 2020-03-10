@@ -6,11 +6,17 @@
 
 <body>
     <script>
-        $.get("data/pharmacy.json", function(data){
-            for(var i = 0; i < data.position.length; i++){
-                console.log(data.position[i].lat)
+        $.ajax({
+            type: "GET",
+            url: "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/stores/json",
+            dataType: "json",
+            success: function (data) {
+                console.log(data.storeInfos)
+            },
+            error: function (xhr, status, error) {
+                console.log(error)
             }
-        })
+        });
     </script>
 
 </body>
