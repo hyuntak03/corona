@@ -18,55 +18,54 @@
 			center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표 
 			level: 14 // 지도의 확대 레벨 
 		});
-		$.ajax({
-			type: "GET",
-			url: "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/stores/json",
-			dataType: "json",
-			success: function (data) {
-				console.log(data.storeInfos)
-				$.each(data.storeInfos, function (i, position) {
-					if (position.type == "01") {
-						console.log(position.type)
-						var marker_position = new kakao.maps.LatLng(position.lat, position.lng);
-						var marker = new kakao.maps.Marker({
-							map: map,
-							position: marker_position
+		if (navigator.geolocation) {
+			// GeoLocation을 이용해서 접속 위치를 얻어옵니다
+			navigator.geolocation.getCurrentPosition(function (position) {
+
+				var lat = position.coords.latitude, // 위도
+					lon = position.coords.longitude; // 경도
+
+				var locPosition = new kakao.maps.LatLng(lat, lon) // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+				map.panTo(locPosition);
+				map.setLevel(5);
+
+				$.ajax({
+					type: "GET",
+					url: "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/stores/json",
+					dataType: "json",
+					success: function (data) {
+						console.log(data.storeInfos)
+						$.each(data.storeInfos, function (i, position) {
+							if (position.type == "01") {
+								console.log(position.type)
+								var marker_position = new kakao.maps.LatLng(position.lat, position.lng);
+								var marker = new kakao.maps.Marker({
+									map: map,
+									position: marker_position
+								})
+								var iwContent = '<div style="padding:5px;">position.name</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+									iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+								// 인포윈도우를 생성합니다
+								var infowindow = new kakao.maps.InfoWindow({
+									content: iwContent,
+									removable: iwRemoveable
+								});
+
+								// 마커에 클릭이벤트를 등록합니다
+								kakao.maps.event.addListener(marker, 'click', function () {
+									// 마커 위에 인포윈도우를 표시합니다
+									infowindow.open(map, marker);
+								});
+							}
 						})
-						var iwContent = '<div style="padding:5px;">position.name</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-							iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
-
-						// 인포윈도우를 생성합니다
-						var infowindow = new kakao.maps.InfoWindow({
-							content: iwContent,
-							removable: iwRemoveable
-						});
-
-						// 마커에 클릭이벤트를 등록합니다
-						kakao.maps.event.addListener(marker, 'click', function () {
-							// 마커 위에 인포윈도우를 표시합니다
-							infowindow.open(map, marker);
-						});
-						if (navigator.geolocation) {
-							// GeoLocation을 이용해서 접속 위치를 얻어옵니다
-							navigator.geolocation.getCurrentPosition(function (position) {
-
-								var lat = position.coords.latitude, // 위도
-									lon = position.coords.longitude; // 경도
-
-								var locPosition = new kakao.maps.LatLng(lat, lon) // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-								map.panTo(locPosition);
-								map.setLevel(5);
-
-							});
-
-						}
+					},
+					error: function (xhr, status, error) {
+						console.log(error)
 					}
-				})
-			},
-			error: function (xhr, status, error) {
-				console.log(error)
-			}
-		});
+				});
+			});
+		}
 	</script>
 
 	<!-- <button class="accordion">근처 우체국</button>
