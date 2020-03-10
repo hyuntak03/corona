@@ -22,7 +22,7 @@
 		// 데이터를 가져와 마커를 생성하고 클러스터러 객체에 넘겨줍니다
 		$.get("/data/pharmacy.json", function (data) {
 			$.each(data, function (i, data) {
-				for (var num = 0; num <= data.position.length; num++) {
+				for (var num = 0; num <= data.position.length(); num++) {
 					var marker = new kakao.maps.Marker({
 						map: map, // 마커를 표시할 지도
 						title: data.position[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
