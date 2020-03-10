@@ -18,11 +18,6 @@
 			center: new kakao.maps.LatLng(36.2683, 127.6358), // 지도의 중심좌표 
 			level: 14 // 지도의 확대 레벨 
 		});
-
-		var imageSize = new kakao.maps.Size(24, 35);
-
-		// 마커 이미지를 생성합니다    
-		var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
 		// 데이터를 가져오기 위해 jQuery를 사용합니다
 		// 데이터를 가져와 마커를 생성하고 클러스터러 객체에 넘겨줍니다
 		$.get("/data/pharmacy.json", function (data) {
@@ -31,7 +26,6 @@
 					var marker = new kakao.maps.Marker({
 						map: map, // 마커를 표시할 지도
 						title: data.position[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-						image: markerImage // 마커 이미지 
 					});
 				}
 			})
