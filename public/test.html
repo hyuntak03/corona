@@ -26,12 +26,12 @@
 			dataType: "text",
 			success: function (text) {
 				console.log(text)
-				for(var i; i < 700; i++){
-					var markers = new kakao.maps.Markers({
+				$.each(data, function(i, data){
+					var marker = new kakao.maps.Marker({
 						map: map,
-						position: new kakao.maps.LatLng(text.position.lat, text.position.lng)
+						position: new kakao.maps.LatLng(data.position.lat, data.position.lng)
 					})
-				}
+				})
 			},
 			error: function (xhr, status, error) {
 				console.log(error)
