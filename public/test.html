@@ -20,8 +20,8 @@
 		});
 		// 데이터를 가져오기 위해 jQuery를 사용합니다
 		// 데이터를 가져와 마커를 생성하고 클러스터러 객체에 넘겨줍니다
-		$.get("/data/pharmacy.json", function (data) {
-			$.each(data, function(i, data){
+		$.get("data/pharmacy.json", function (data) {
+			$.each(data, function (i, data) {
 				var marker = new kakao.maps.Marker({
 					map: map,
 					position: new kakao.maps.LatLng(data.lat, data.lng)
