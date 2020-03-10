@@ -26,6 +26,7 @@
 			success: function (data) {
 				$.each(data.storeInfos, function (i, position) {
 					if (position.type == "01") {
+						console.log(position.type)
 						var marker_position = new kakao.maps.LatLng(position.lat, position.lng);
 						var marker = new kakao.maps.Marker({
 							map: map,
@@ -42,4 +43,4 @@
 	</script>
 </body>
 
-</html>
+</html>	
