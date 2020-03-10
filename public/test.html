@@ -5,21 +5,14 @@
 	<meta charset="utf-8">
 	<title>마커 클러스터러 사용하기</title>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<style>
-		div {
-			width : 200px;
-			height: 100px;
-			padding: left;
-			border: 2px solid black;
-		}
-	</style>
 
 </head>
 
 <body>
 	<div id="map" style="width:100%;height:350px;"></div>
 
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d21bba611d5b2617ceca0bb656175c49"></script>
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d21bba611d5b2617ceca0bb656175c49"></script>
 	<script>
 		var map = new kakao.maps.Map(document.getElementById('map'), { // 지도를 표시할 div
 			center: new kakao.maps.LatLng(36.2683, 127.6358), // 지도의 중심좌표 
@@ -49,6 +42,15 @@
 		});
 
 	</script>
+	
+	<style>
+		div {
+			width: 200px;
+			height: 100px;
+			padding: left;
+			border: 2px solid black;
+		}
+	</style>
 
 </body>
 
