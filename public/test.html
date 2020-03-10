@@ -28,6 +28,10 @@
 				var locPosition = new kakao.maps.LatLng(lat, lon) // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
 				map.panTo(locPosition);
 				map.setLevel(5);
+				var marker_myloc = new kakao.maps.Marker({
+					map: map,
+					position: locPosition
+				})
 
 				$.ajax({
 					type: "GET",
