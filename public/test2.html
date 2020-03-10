@@ -1,0 +1,16 @@
+<head>
+    test
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+
+<body>
+    <script>
+        $.get("data/pharmacy.json", function(data){
+            for(var i = 0; i < data.position.length; i++){
+                console.log(data.position[i].lat)
+            }
+        })
+    </script>
+
+</body>
