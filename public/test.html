@@ -26,7 +26,7 @@
 			dataType: "text",
 			success: function (text) {
 				console.log(text)
-				$.each(text, function(i, data){
+				$.each(text.position, function(i, data){
 					var marker = new kakao.maps.Marker({
 						map: map,
 						position: new kakao.maps.LatLng(data.position.lat, data.position.lng)
