@@ -21,11 +21,11 @@
 		// 데이터를 가져오기 위해 jQuery를 사용합니다
 		// 데이터를 가져와 마커를 생성하고 클러스터러 객체에 넘겨줍니다
 		$.get("/data/pharmacy.json", function (data) {
-			var markers = $(data.positions).map(function(i, position) {
-            return new kakao.maps.Marker({
-                position : new kakao.maps.LatLng(position.lat, position.lng)
-            });
-        });
+			var markers = $(data.positions).map(function (i, position) {
+				return new kakao.maps.Marker({
+					position: new kakao.maps.LatLng(position.lat, position.lng)
+				});
+			});
 		});
 	</script>
 </body>
