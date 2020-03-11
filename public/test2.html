@@ -1,19 +1,6 @@
 <head>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-
-                var lat = position.coords.latitude, // 위도
-                    lon = position.coords.longitude; // 경도
-
-                pharmacy(lat, lon)
-
-            });
-
-        } else {
-            alert("위치 정보를 얻어는데 실패했습니다.")
-        }
     </script>
 </head>
 
@@ -30,6 +17,20 @@
             center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표 
             level: 4 // 지도의 확대 레벨 
         });
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+
+                var lat = position.coords.latitude, // 위도
+                    lon = position.coords.longitude; // 경도
+
+                pharmacy(lat, lon);
+
+            });
+
+        } else {
+            alert("위치 정보를 얻어는데 실패했습니다.")
+        }
+        
         function pharmacy(lat, lng) {
             var my_loc = new kakao.maps.LatLng(lat, lng);
             map.panTo(my_loc);
@@ -44,9 +45,9 @@
                         var name = stores.name;
                         var stauts = stores.remain_stat
                         var remain = ""
-                        if(status == "empy"){
+                        if (status == "empy") {
                             reamin = "품절"
-                        }else if(status == null){
+                        } else if (status == null) {
                             reamain = "정보 없음"
                         }
                         var position = new kakao.maps.LatLng(stores.lat, stores.lng);
@@ -55,7 +56,7 @@
                             position: position,
                             clickable: true
                         });
-                        var iwContent = '<div class = "text-center" style="padding:5px;">'+name+'</div><br>'+ remain +'</br>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+                        var iwContent = '<div class = "text-center" style="padding:5px;">' + name + '</div><br>' + remain + '</br>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
                             iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 
                         // 인포윈도우를 생성합니다
