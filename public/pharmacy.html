@@ -285,13 +285,13 @@
                                     var remain;
                                     if (status == "empty") {
                                         remain = "품절"
-                                        console.log(remain)
+                                        //console.log(remain)
                                     } else if (status == null) {
                                         remain = "정보 없음"
-                                        console.log(remain)
+                                        //console.log(remain)
                                     } else {
                                         remain = status;
-                                        console.log(remain)
+                                        //console.log(remain)
                                     }
                                     var position = new kakao.maps.LatLng(stores.lat, stores.lng);
                                     var marker = new kakao.maps.Marker({
@@ -317,7 +317,6 @@
                         })
                     }
 
-                    function load_map() {
                         kakao.maps.event.addListener(map, 'center_changed', function () {
 
                             // 지도의 중심좌표를 얻어옵니다 
@@ -368,7 +367,6 @@
                             })
 
                         });
-                    }
                 </script>
 
                 <!-- Topbar -->
