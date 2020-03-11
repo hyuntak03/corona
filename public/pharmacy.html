@@ -272,6 +272,26 @@
                             image: markerImage
                         })
 
+                        var redSrc = '/images/red-marker.png',
+                            redSize = new kakao.maps.Size(64, 69),
+                            redOption = { offset: new kakao.maps.Point(27, 69) };
+                        var redImage = new kakao.maps.MarkerImage(redSrc, redSize, redOption)
+
+                        var greenSrc = '/images/green-marker.png',
+                            greenSize = new kakao.maps.Size(64, 69),
+                            greenOption = { offset: new kakao.maps.Point(27, 69) };
+                        var greenImage = new kakao.maps.MarkerImage(greenSrc, greenSize, greenOption)
+
+                        var yellowSrc = '/images/yellow-marker.png',
+                            yellowSize = new kakao.maps.Size(64, 69),
+                            redOption = { offset: new kakao.maps.Point(27, 69) };
+                        var yellowImage = new kakao.maps.MarkerImage(yellowSrc, yellowSize, yellowOption)
+
+                        var redSrc = '/images/gray-marker.png',
+                            graySize = new kakao.maps.Size(64, 69),
+                            grayOption = { offset: new kakao.maps.Point(27, 69) };
+                        var grayImage = new kakao.maps.MarkerImage(graySrc, graySize, grayOption)
+
                         var loc = "?lat=" + lat + "&lng=" + lng + "&m=5000";
                         var url = "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByGeo/json" + loc
                         $.ajax({
@@ -280,26 +300,56 @@
                             dataType: "json",
                             success: function (data) {
                                 $.each(data.stores, function (i, stores) {
+                                    var position = new kakao.maps.LatLng(stores.lat, stores.lng);
                                     var name = stores.name;
                                     var status = stores.remain_stat
                                     console.log(status)
                                     var remain;
                                     if (status == "empty") {
                                         remain = "품절"
+                                        var marker = new kakao.maps.Marker({
+                                            map: map,
+                                            position: position,
+                                            clickable: true,
+                                            image: grayImage
+                                        });
                                         //console.log(remain)
                                     } else if (status == null) {
                                         remain = "정보 없음"
+                                        var marker = new kakao.maps.Marker({
+                                            map: map,
+                                            position: position,
+                                            clickable: true,
+                                            image: grayImage
+                                        });
                                         //console.log(remain)
-                                    } else {
-                                        remain = status;
+                                    } else if (status == "few") {
+                                        remain = "2개 이상 30개 미만"
+                                        var marker = new kakao.maps.Marker({
+                                            map: map,
+                                            position: position,
+                                            clickable: true,
+                                            image: redImage
+                                        });
                                         //console.log(remain)
+                                    } else if (status == "some") {
+                                        remain = "30개 이상 100개 미만"
+                                        var marker = new kakao.maps.Marker({
+                                            map: map,
+                                            position: position,
+                                            clickable: true,
+                                            image: yelloImage
+                                        });
+                                    } else if (status == "plenty") {
+                                        remain = "100개 이상"
+                                        var marker = new kakao.maps.Marker({
+                                            map: map,
+                                            position: position,
+                                            clickable: true,
+                                            image: greenImage
+                                        });
                                     }
-                                    var position = new kakao.maps.LatLng(stores.lat, stores.lng);
-                                    var marker = new kakao.maps.Marker({
-                                        map: map,
-                                        position: position,
-                                        clickable: true
-                                    });
+
                                     var iwContent = '<div class = "text-center" style="padding:5px;">' + name + '</div><br>' + remain + '</br>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
                                         iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 
@@ -317,54 +367,83 @@
                             }
                         })
                     }
-                    function load_map(){
+                    function load_map() {
 
-                            // 지도의 중심좌표를 얻어옵니다 
-                            var latlng = map.getCenter();
-                            var loc = "?lat=" + latlng.getLat() + "&lng=" + latlng.getLng() + "&m=5000";
-                            var url = "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByGeo/json" + loc
-                            $.ajax({
-                                type: "GET",
-                                url: url,
-                                dataType: "json",
-                                success: function (data) {
-                                    $.each(data.stores, function (i, stores) {
-                                        var name = stores.name;
-                                        var status = stores.remain_stat
-                                        console.log(status)
-                                        var remain;
-                                        if (status == "empty") {
-                                            remain = "품절"
-                                            //console.log(remain)
-                                        } else if (status == null) {
-                                            remain = "정보 없음"
-                                            //console.log(remain)
-                                        } else {
-                                            remain = status;
-                                            //console.log(remain)
-                                        }
-                                        var position = new kakao.maps.LatLng(stores.lat, stores.lng);
+                        // 지도의 중심좌표를 얻어옵니다 
+                        var latlng = map.getCenter();
+                        var loc = "?lat=" + latlng.getLat() + "&lng=" + latlng.getLng() + "&m=5000";
+                        var url = "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByGeo/json" + loc
+                        $.ajax({
+                            type: "GET",
+                            url: url,
+                            dataType: "json",
+                            success: function (data) {
+                                $.each(data.stores, function (i, stores) {
+                                    var position = new kakao.maps.LatLng(stores.lat, stores.lng);
+                                    var name = stores.name;
+                                    var status = stores.remain_stat
+                                    console.log(status)
+                                    var remain;
+                                    if (status == "empty") {
+                                        remain = "품절"
                                         var marker = new kakao.maps.Marker({
                                             map: map,
                                             position: position,
-                                            clickable: true
+                                            clickable: true,
+                                            image: grayImage
                                         });
-                                        var iwContent = '<div class = "text-center" style="padding:5px;">' + name + '</div><br>' + remain + '</br>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-                                            iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+                                        //console.log(remain)
+                                    } else if (status == null) {
+                                        remain = "정보 없음"
+                                        var marker = new kakao.maps.Marker({
+                                            map: map,
+                                            position: position,
+                                            clickable: true,
+                                            image: grayImage
+                                        });
+                                        //console.log(remain)
+                                    } else if (status == "few") {
+                                        remain = "2개 이상 30개 미만"
+                                        var marker = new kakao.maps.Marker({
+                                            map: map,
+                                            position: position,
+                                            clickable: true,
+                                            image: redImage
+                                        });
+                                        //console.log(remain)
+                                    } else if (status == "some") {
+                                        remain = "30개 이상 100개 미만"
+                                        var marker = new kakao.maps.Marker({
+                                            map: map,
+                                            position: position,
+                                            clickable: true,
+                                            image: yelloImage
+                                        });
+                                    } else if (status == "plenty") {
+                                        remain = "100개 이상"
+                                        var marker = new kakao.maps.Marker({
+                                            map: map,
+                                            position: position,
+                                            clickable: true,
+                                            image: greenImage
+                                        });
+                                    }
+                                    var iwContent = '<div class = "text-center" style="padding:5px;">' + name + '</div><br>' + remain + '</br>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+                                        iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 
-                                        // 인포윈도우를 생성합니다
-                                        var infowindow = new kakao.maps.InfoWindow({
-                                            content: iwContent,
-                                            removable: iwRemoveable
-                                        });
+                                    // 인포윈도우를 생성합니다
+                                    var infowindow = new kakao.maps.InfoWindow({
+                                        content: iwContent,
+                                        removable: iwRemoveable
+                                    });
 
-                                        // 마커에 클릭이벤트를 등록합니다
-                                        kakao.maps.event.addListener(marker, 'click', function () {
-                                            infowindow.open(map, marker);
-                                        });
-                                    })
-                                }
-                            })
+                                    // 마커에 클릭이벤트를 등록합니다
+                                    kakao.maps.event.addListener(marker, 'click', function () {
+                                        infowindow.open(map, marker);
+                                    });
+                                })
+                            }
+                        })
                     }
                     setInterval(load_map, 3000);
                 </script>
