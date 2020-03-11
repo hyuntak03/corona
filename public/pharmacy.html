@@ -27,93 +27,6 @@
 
 <body id="page-top">
 
-    <div id="map" style="width: 100% ;height:100%; position: absolute; z-index: 1;"></div>
-
-    <script type="text/javascript"
-        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d21bba611d5b2617ceca0bb656175c49"></script>
-
-    <script>
-        var map = new kakao.maps.Map(document.getElementById('map'), { // 지도를 표시할 div
-            center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표 
-            level: 2 // 지도의 확대 레벨 
-        });
-
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-
-                var lat = position.coords.latitude, // 위도
-                    lon = position.coords.longitude; // 경도
-                map.setCenter(new kakao.maps.LatLng(lat, lon));
-                pharmacy(lat, lon);
-
-            });
-
-        } else {
-            alert("위치 정보를 얻어는데 실패했습니다.")
-        }
-
-        function pharmacy(lat, lng) {
-            var my_loc = new kakao.maps.LatLng(lat, lng);
-
-            var imageSrc = '/images/my_loc.jpg', // 마커이미지의 주소입니다    
-                imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
-                imageOption = { offset: new kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-
-            // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
-            var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
-            var marker = new kakao.maps.Marker({
-                map: map,
-                position: my_loc,
-                image: markerImage
-            })
-
-            var loc = "?lat=" + lat + "&lng=" + lng + "&m=5000";
-            var url = "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByGeo/json" + loc
-            $.ajax({
-                type: "GET",
-                url: url,
-                dataType: "json",
-                success: function (data) {
-                    $.each(data.stores, function (i, stores) {
-                        var name = stores.name;
-                        var status = stores.remain_stat
-                        console.log(status)
-                        var remain;
-                        if (status == "empty") {
-                            remain = "품절"
-                            console.log(remain)
-                        } else if (status == null) {
-                            remain = "정보 없음"
-                            console.log(remain)
-                        } else {
-                            remain = status;
-                            console.log(remain)
-                        }
-                        var position = new kakao.maps.LatLng(stores.lat, stores.lng);
-                        var marker = new kakao.maps.Marker({
-                            map: map,
-                            position: position,
-                            clickable: true
-                        });
-                        var iwContent = '<div class = "text-center" style="padding:5px;">' + name + '</div><br>' + remain + '</br>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-                            iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
-
-                        // 인포윈도우를 생성합니다
-                        var infowindow = new kakao.maps.InfoWindow({
-                            content: iwContent,
-                            removable: iwRemoveable
-                        });
-
-                        // 마커에 클릭이벤트를 등록합니다
-                        kakao.maps.event.addListener(marker, 'click', function () {
-                            infowindow.open(map, marker);
-                        });
-                    })
-                }
-            })
-        }
-    </script>
-
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -176,15 +89,6 @@
                     </div>
                 </div>
             </li>
-
-            <!-- Divider -->
-            <!-- <hr class="sidebar-divider"> -->
-
-            <!-- Heading -->
-            <!-- <div class="sidebar-heading">
-        Addons
-      </div> -->
-            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
@@ -307,6 +211,93 @@
             </div>
 
         </ul>
+
+        <div id="map" style="width: 100% ;height:100%; position: absolute; z-index: 1;"></div>
+
+        <script type="text/javascript"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d21bba611d5b2617ceca0bb656175c49"></script>
+
+        <script>
+            var map = new kakao.maps.Map(document.getElementById('map'), { // 지도를 표시할 div
+                center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표 
+                level: 2 // 지도의 확대 레벨 
+            });
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+
+                    var lat = position.coords.latitude, // 위도
+                        lon = position.coords.longitude; // 경도
+                    map.setCenter(new kakao.maps.LatLng(lat, lon));
+                    pharmacy(lat, lon);
+
+                });
+
+            } else {
+                alert("위치 정보를 얻어는데 실패했습니다.")
+            }
+
+            function pharmacy(lat, lng) {
+                var my_loc = new kakao.maps.LatLng(lat, lng);
+
+                var imageSrc = '/images/my_loc.jpg', // 마커이미지의 주소입니다    
+                    imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
+                    imageOption = { offset: new kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+
+                // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+                var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
+                var marker = new kakao.maps.Marker({
+                    map: map,
+                    position: my_loc,
+                    image: markerImage
+                })
+
+                var loc = "?lat=" + lat + "&lng=" + lng + "&m=5000";
+                var url = "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByGeo/json" + loc
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    dataType: "json",
+                    success: function (data) {
+                        $.each(data.stores, function (i, stores) {
+                            var name = stores.name;
+                            var status = stores.remain_stat
+                            console.log(status)
+                            var remain;
+                            if (status == "empty") {
+                                remain = "품절"
+                                console.log(remain)
+                            } else if (status == null) {
+                                remain = "정보 없음"
+                                console.log(remain)
+                            } else {
+                                remain = status;
+                                console.log(remain)
+                            }
+                            var position = new kakao.maps.LatLng(stores.lat, stores.lng);
+                            var marker = new kakao.maps.Marker({
+                                map: map,
+                                position: position,
+                                clickable: true
+                            });
+                            var iwContent = '<div class = "text-center" style="padding:5px;">' + name + '</div><br>' + remain + '</br>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+                                iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+                            // 인포윈도우를 생성합니다
+                            var infowindow = new kakao.maps.InfoWindow({
+                                content: iwContent,
+                                removable: iwRemoveable
+                            });
+
+                            // 마커에 클릭이벤트를 등록합니다
+                            kakao.maps.event.addListener(marker, 'click', function () {
+                                infowindow.open(map, marker);
+                            });
+                        })
+                    }
+                })
+            }
+        </script>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -324,7 +315,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
+                    <!-- <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
@@ -335,7 +326,7 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
