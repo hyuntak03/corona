@@ -15,7 +15,7 @@
 
         var map = new kakao.maps.Map(document.getElementById('map'), { // 지도를 표시할 div
             center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표 
-            level: 4 // 지도의 확대 레벨 
+            level: 3 // 지도의 확대 레벨 
         });
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
@@ -30,7 +30,7 @@
         } else {
             alert("위치 정보를 얻어는데 실패했습니다.")
         }
-        
+
         function pharmacy(lat, lng) {
             var my_loc = new kakao.maps.LatLng(lat, lng);
             map.panTo(my_loc);
@@ -45,7 +45,7 @@
                         var name = stores.name;
                         var stauts = stores.remain_stat
                         var remain = ""
-                        if (status == "empy") {
+                        if (status == "empty") {
                             reamin = "품절"
                         } else if (status == null) {
                             reamain = "정보 없음"
