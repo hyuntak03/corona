@@ -16,10 +16,12 @@
                     $.each(data.storeInfos, function(i, store){
                         if(store.name == inputString){
                             console.log(store.name +" " + store.addr)
+                            document.getElementById("test").innerText += store.name +" " + store.addr + "\n"
                         }
                     })
                 }
             })
         }
     </script>
+    <p id = "test"></p>
 </body>
