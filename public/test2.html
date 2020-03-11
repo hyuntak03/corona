@@ -44,6 +44,7 @@
                     $.each(data.stores, function (i, stores) {
                         var name = stores.name;
                         var status = stores.remain_stat
+                        status = status.toString();
                         var remain;
                         if (status == "empty") {
                             reamin = "품절"
