@@ -42,8 +42,10 @@
             var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
             var marker = new kakao.maps.Marker({
                 map: map,
-                position: my_loc
+                position: my_loc,
+                image: markerImage
             })
+            
             var loc = "?lat=" + lat + "&lng=" + lng + "&m=5000";
             var url = "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByGeo/json" + loc
             $.ajax({
