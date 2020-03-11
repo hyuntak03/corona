@@ -30,9 +30,11 @@
 
         var map = new kakao.maps.Map(document.getElementById('map'), { // 지도를 표시할 div
             center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표 
-            level: 5 // 지도의 확대 레벨 
+            level: 4 // 지도의 확대 레벨 
         });
         function pharmacy(lat, lng) {
+            var my_loc = new kakao.maps.LatLng(lat, lng);
+            map.panTo(my_loc);
             var loc = "?lat=" + lat + "&lng=" + lng + "&m=5000";
             var url = "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByGeo/json" + loc
             $.ajax({
@@ -43,6 +45,11 @@
                     $.each(data.stores, function (i, stores) {
                         var name = stores.name;
                         var status = stores.remain_stat
+                        if(status == "empy"){
+                            status = "품절"
+                        }else if(status == null){
+                            status = "정보 없음"
+                        }
                         var position = new kakao.maps.LatLng(stores.lat, stores.lng);
                         var marker = new kakao.maps.Marker({
                             map: map,
