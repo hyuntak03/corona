@@ -316,7 +316,7 @@
                             }
                         })
                     }
-
+                    function load_map(){
                         kakao.maps.event.addListener(map, 'center_changed', function () {
 
                             // 지도의 중심좌표를 얻어옵니다 
@@ -365,8 +365,9 @@
                                     })
                                 }
                             })
-
                         });
+                    }
+                    setInterval(load_map, 3000);
                 </script>
 
                 <!-- Topbar -->
