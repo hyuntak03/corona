@@ -243,6 +243,26 @@
                         level: 2 // 지도의 확대 레벨 
                     });
 
+                    var redSrc = '/images/red-marker.png',
+                        redSize = new kakao.maps.Size(64, 69),
+                        redOption = { offset: new kakao.maps.Point(27, 69) };
+                    var redImage = new kakao.maps.MarkerImage(redSrc, redSize, redOption)
+
+                    var greenSrc = '/images/green-marker.png',
+                        greenSize = new kakao.maps.Size(64, 69),
+                        greenOption = { offset: new kakao.maps.Point(27, 69) };
+                    var greenImage = new kakao.maps.MarkerImage(greenSrc, greenSize, greenOption)
+
+                    var yellowSrc = '/images/yellow-marker.png',
+                        yellowSize = new kakao.maps.Size(64, 69),
+                        yelloOption = { offset: new kakao.maps.Point(27, 69) };
+                    var yellowImage = new kakao.maps.MarkerImage(yellowSrc, yellowSize, yellowOption)
+
+                    var graySrc = '/images/gray-marker.png',
+                        graySize = new kakao.maps.Size(64, 69),
+                        grayOption = { offset: new kakao.maps.Point(27, 69) };
+                    var grayImage = new kakao.maps.MarkerImage(graySrc, graySize, grayOption)
+
                     if (navigator.geolocation) {
                         navigator.geolocation.getCurrentPosition(function (position) {
 
@@ -271,26 +291,6 @@
                             position: my_loc,
                             image: markerImage
                         })
-
-                        var redSrc = '/images/red-marker.png',
-                            redSize = new kakao.maps.Size(64, 69),
-                            redOption = { offset: new kakao.maps.Point(27, 69) };
-                        var redImage = new kakao.maps.MarkerImage(redSrc, redSize, redOption)
-
-                        var greenSrc = '/images/green-marker.png',
-                            greenSize = new kakao.maps.Size(64, 69),
-                            greenOption = { offset: new kakao.maps.Point(27, 69) };
-                        var greenImage = new kakao.maps.MarkerImage(greenSrc, greenSize, greenOption)
-
-                        var yellowSrc = '/images/yellow-marker.png',
-                            yellowSize = new kakao.maps.Size(64, 69),
-                            redOption = { offset: new kakao.maps.Point(27, 69) };
-                        var yellowImage = new kakao.maps.MarkerImage(yellowSrc, yellowSize, yellowOption)
-
-                        var redSrc = '/images/gray-marker.png',
-                            graySize = new kakao.maps.Size(64, 69),
-                            grayOption = { offset: new kakao.maps.Point(27, 69) };
-                        var grayImage = new kakao.maps.MarkerImage(graySrc, graySize, grayOption)
 
                         var loc = "?lat=" + lat + "&lng=" + lng + "&m=5000";
                         var url = "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByGeo/json" + loc
