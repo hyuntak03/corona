@@ -14,6 +14,13 @@
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d21bba611d5b2617ceca0bb656175c49"></script>
 	<script>
 
+		var imageSrc = 'images/my_loc.jpg', // 마커이미지의 주소입니다    
+			imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
+			imageOption = { offset: new kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+
+		// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+		var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
+
 		var map = new kakao.maps.Map(document.getElementById('map'), { // 지도를 표시할 div
 			center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표 
 			level: 14 // 지도의 확대 레벨 
@@ -32,7 +39,7 @@
 							map: map,
 							position: marker_position
 						})
-						var iwContent = '<div style="padding:5px;">'+ position.name+ '</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+						var iwContent = '<div style="padding:5px;">' + position.name + '</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
 							iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 
 						// 인포윈도우를 생성합니다
@@ -56,9 +63,10 @@
 								var locPosition = new kakao.maps.LatLng(lat, lon) // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
 								map.panTo(locPosition);
 								map.setLevel(6);
-								var my_marker = new kakao.maps.Marker({
-									map:map,
-									positoin: locPosition
+								var marker = new kakao.maps.Marker({
+									map: map,
+									positoin: locPosition,
+									image: markerImage
 								})
 
 							});
