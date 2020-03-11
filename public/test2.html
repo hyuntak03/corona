@@ -44,11 +44,13 @@
                     $.each(data.stores, function (i, stores) {
                         var name = stores.name;
                         var status = stores.remain_stat
-                        var remain = ""
+                        var remain;
                         if (status == "empty") {
                             reamin = "품절"
                         } else if (status == null) {
                             reamain = "정보 없음"
+                        }else{
+                            remain = status;
                         }
                         var position = new kakao.maps.LatLng(stores.lat, stores.lng);
                         var marker = new kakao.maps.Marker({
