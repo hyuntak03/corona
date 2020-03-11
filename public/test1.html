@@ -3,25 +3,35 @@
 </head>
 
 <body>
-    <script>
-        var inputString = prompt('문자열을 입력하세요', '기본 값 문자열');
 
-        for (var i = 1; i <= 6; i++) {
-            var url = "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/stores/json?page=" + i + "&perPage=5000"
-            $.ajax({
-                type: "GET",
-                url: url,
-                dataType: "json",
-                success: function (data) {
-                    $.each(data.storeInfos, function(i, store){
-                        if(store.name == inputString){
-                            console.log(store.name +" " + store.addr)
-                            document.getElementById("test").innerText += store.name +" " + store.addr + "\n"
-                        }
-                    })
-                }
-            })
+    <div class="search">
+        <input type="text" placeholder="검색어를 입력해주세요." id="search">
+    </div>
+    <div class="button">
+        <button onclick="search()">검색</button>
+    </div>
+
+    <script>
+        function search() {
+            var inputString = document.getElementById("search").value;
+
+            for (var i = 1; i <= 6; i++) {
+                var url = "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/stores/json?page=" + i + "&perPage=5000"
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    dataType: "json",
+                    success: function (data) {
+                        $.each(data.storeInfos, function (i, store) {
+                            if (store.name == inputString) {
+                                console.log(store.name + " " + store.addr)
+                                document.getElementById("test").innerText += store.name + " " + store.addr + "\n"
+                            }
+                        })
+                    }
+                })
+            }
         }
     </script>
-    <p id = "test"></p>
+    <p id="test"></p>
 </body>
