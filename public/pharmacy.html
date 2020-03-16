@@ -324,7 +324,7 @@
                                         });
                                         //console.log(remain)
                                     } else if (status == "few") {
-                                        remain = "2개 이상 30개 미만"
+                                        remain = "2개 ~ 30개"
                                         var marker = new kakao.maps.Marker({
                                             map: map,
                                             position: position,
@@ -333,7 +333,7 @@
                                         });
                                         //console.log(remain)
                                     } else if (status == "some") {
-                                        remain = "30개 이상 100개 미만"
+                                        remain = "30개 ~ 100개"
                                         var marker = new kakao.maps.Marker({
                                             map: map,
                                             position: position,
@@ -341,16 +341,24 @@
                                             image: yelloImage
                                         });
                                     } else if (status == "plenty") {
-                                        remain = "100개 이상"
+                                        remain = "100개 ~"
                                         var marker = new kakao.maps.Marker({
                                             map: map,
                                             position: position,
                                             clickable: true,
                                             image: greenImage
                                         });
+                                    } else if (status == "break") {
+                                        remain = "판매 중지"
+                                        var marker = new kakao.maps.Marker({
+                                            map: map,
+                                            position: position,
+                                            clickable: true,
+                                            image: grayImage
+                                        });
                                     }
 
-                                    var iwContent = '<div class = "text-center" style="padding:5px; font-size:1.3em;">' + name + '</div><p>재고상태: ' + remain + 
+                                    var iwContent = '<div class = "text-center" style="padding:5px; font-size:1.3em;">' + name + '</div><p>재고상태: ' + remain +
                                         '</p><p><a href="https://map.kakao.com/link/to/' + name + "," + stores.lat + "," + stores.lng + ' " target="_blank"  style = "text-align" >길찾기</a></p>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
                                         iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 
@@ -429,7 +437,7 @@
                                             image: greenImage
                                         });
                                     }
-                                    var iwContent = '<div class = "text-center" style="padding:5px; font-size:1.3em;">' + name + '</div><p>재고상태: ' + remain + 
+                                    var iwContent = '<div class = "text-center" style="padding:5px; font-size:1.3em;">' + name + '</div><p>재고상태: ' + remain +
                                         '</p><br><a href="https://map.kakao.com/link/to/' + name + "," + stores.lat + "," + stores.lng + ' " target="_blank" style = "text-align" >길찾기</a></br>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
                                         iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 
