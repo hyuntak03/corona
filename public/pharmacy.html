@@ -297,7 +297,10 @@
                         $.ajax({
                             type: "GET",
                             url: url,
-                            dataType: "jsonp",
+                            headers: {
+                                'Content-Type': 'www.corona-hub.kr'
+                            },
+                            dataType: "json",
                             success: function (data) {
                                 $.each(data.stores, function (i, stores) {
                                     var position = new kakao.maps.LatLng(stores.lat, stores.lng);
