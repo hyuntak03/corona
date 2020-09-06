@@ -14,6 +14,5 @@ router.use(function (req, res, next) {
   next();
 });
 
-express.use(cors())
 
 module.exports = router;
