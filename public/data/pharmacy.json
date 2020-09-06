@@ -1,7 +1,7 @@
 {
     "count": 500,
     "page": 1,
-    "position": [{
+    "storeInfos": [{
       "addr": "충청남도 홍성군 갈산면 상촌로",
       "code": "34840559",
       "lat": null,
