@@ -297,7 +297,7 @@
                         $.ajax({
                             type: "GET",
                             url: url,
-                            dataType: "json",
+                            dataType: "jsonp",
                             success: function (data) {
                                 $.each(data.stores, function (i, stores) {
                                     var position = new kakao.maps.LatLng(stores.lat, stores.lng);
