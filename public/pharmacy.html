@@ -297,6 +297,9 @@
                         $.ajax({
                             type: "GET",
                             url: url,
+                            headers: {
+                                'Content-Type': 'https://www.corona-hub.kr'
+                            },
                             dataType: "json",
                             success: function (data) {
                                 $.each(data.stores, function (i, stores) {
