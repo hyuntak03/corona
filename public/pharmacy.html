@@ -293,12 +293,12 @@
                         })
 
                         var loc = "lat=" + lat + "&lng=" + lng + "&m=5000";
-                        var url = "https://corona-hub.herokuapp.com/pharmacy.html/https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByGeo/json?" + loc
+                        var url = "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByGeo/json?" + loc
                         $.ajax({
                             type: "GET",
                             url: url,
                             headers: {
-                                'Content-Type': 'https://corona-hub.herokuapp.com/pharmacy.html'
+                                'Content-Type': 'https://corona-hub.herokuapp.com'
                             },
                             dataType: "json",
                             success: function (data) {
